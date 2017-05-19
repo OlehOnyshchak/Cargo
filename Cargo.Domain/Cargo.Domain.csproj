@@ -68,7 +68,7 @@
     <Compile Include="Entities\Application.cs" />
     <Compile Include="Entities\ApplicationShortView.cs" />
     <Compile Include="Entities\Bank.cs" />
-    <Compile Include="Entities\CargoDbContext.cs" />
+    <Compile Include="DB\CargoDbContext.cs" />
     <Compile Include="Entities\Company.cs" />
     <Compile Include="Entities\CurrencyRate.cs" />
     <Compile Include="Entities\DocumentTemplate.cs" />

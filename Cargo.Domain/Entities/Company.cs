@@ -1,18 +1,11 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity.Spatial;
+
 namespace Cargo.Domain.Entities
 {
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
-
-    public enum CompanyType : int
-    {
-        Mine = 1,
-        Client = 2,
-        Supplier = 4
-    };
-
     public partial class Company
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -63,4 +56,11 @@ namespace Cargo.Domain.Entities
         [InverseProperty("Supplier")]
         public virtual ICollection<Receipt> Receipts { get; set; }
     }
+
+    public enum CompanyType : int
+    {
+        Mine = 1,
+        Client = 2,
+        Supplier = 4
+    };
 }
