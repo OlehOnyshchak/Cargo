@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cargo.Domain", "Cargo.Domai
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cargo.UI", "Cargo.UI\Cargo.UI.csproj", "{6C1DB744-27E1-4751-B925-0A07A129DD25}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cargo.Controller", "Cargo.Controller\Cargo.Controller.csproj", "{CC627D1A-01BB-47B3-BCDD-972D5CF59BE0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{6C1DB744-27E1-4751-B925-0A07A129DD25}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6C1DB744-27E1-4751-B925-0A07A129DD25}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6C1DB744-27E1-4751-B925-0A07A129DD25}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC627D1A-01BB-47B3-BCDD-972D5CF59BE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC627D1A-01BB-47B3-BCDD-972D5CF59BE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC627D1A-01BB-47B3-BCDD-972D5CF59BE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC627D1A-01BB-47B3-BCDD-972D5CF59BE0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
