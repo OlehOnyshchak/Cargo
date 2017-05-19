@@ -10,21 +10,21 @@
     <Grid>
         <DockPanel>
             <Menu DockPanel.Dock="Top">
-                <MenuItem Header="_Додати">
-                    <MenuItem Header="_Заявку" />
-                    <MenuItem Header="_Звіт" />
+                <MenuItem Header="_Add">
+                    <MenuItem Header="_Application" />
+                    <MenuItem Header="_RouteReport" />
                     <Separator />
-                    <MenuItem Header="_Водія" />
-                    <MenuItem Header="_Автомобіль" />
-                    <MenuItem Header="_Компанію" />
+                    <MenuItem Header="_Driver" Click="OnAddDriverClick" />
+                    <MenuItem Header="_Vehicle" Click="OnAddVehicleClick" />
+                    <MenuItem Header="_Company" />
                 </MenuItem>
-                <MenuItem Header="_Показати">
-                    <MenuItem Header="_Заявки" />
-                    <MenuItem Header="_Звіти" />
+                <MenuItem Header="_Show">
+                    <MenuItem Header="_Applications" />
+                    <MenuItem Header="_Reports" />
                 </MenuItem>
-                <MenuItem Header="_Створити">
-                    <MenuItem Header="_Документ_1" />
-                    <MenuItem Header="_Документ_2" />
+                <MenuItem Header="_Generate">
+                    <MenuItem Header="_Document_1" />
+                    <MenuItem Header="_Document_2" />
                 </MenuItem>
             </Menu>
 

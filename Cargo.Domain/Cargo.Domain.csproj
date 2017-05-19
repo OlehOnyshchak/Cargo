@@ -64,6 +64,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Concrete\DriverRepository.cs" />
+    <Compile Include="Concrete\Repository.cs" />
     <Compile Include="Entities\Address.cs" />
     <Compile Include="Entities\Application.cs" />
     <Compile Include="Entities\ApplicationShortView.cs" />
@@ -83,6 +85,7 @@
     <Compile Include="Entities\ServiceSpending.cs" />
     <Compile Include="Entities\Vehicle.cs" />
     <Compile Include="Entities\WarehouseItem.cs" />
+    <Compile Include="Interfaces\IDriverRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

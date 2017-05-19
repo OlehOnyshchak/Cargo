@@ -68,6 +68,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\DriverModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -94,9 +95,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Cargo.Controller\Cargo.Controller.csproj">
-      <Project>{cc627d1a-01bb-47b3-bcdd-972d5cf59be0}</Project>
-      <Name>Cargo.Controller</Name>
+    <ProjectReference Include="..\Cargo.Domain\Cargo.Domain.csproj">
+      <Project>{f5385954-1ab1-4ebd-832f-7151d4c541ad}</Project>
+      <Name>Cargo.Domain</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

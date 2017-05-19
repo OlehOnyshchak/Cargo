@@ -25,7 +25,12 @@ namespace Cargo.UI
             InitializeComponent();
         }
 
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        private void OnAddDriverClick(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void OnAddVehicleClick(object sender, RoutedEventArgs e)
         {
 
         }
