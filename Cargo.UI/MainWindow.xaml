@@ -5,8 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Cargo.UI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="409.323" Width="699.465">
+    
     <Grid>
-        
+        <DockPanel>
+            <Menu DockPanel.Dock="Top">
+                <MenuItem Header="_Додати">
+                    <MenuItem Header="_Заявку" />
+                    <MenuItem Header="_Звіт" />
+                    <Separator />
+                    <MenuItem Header="_Водія" />
+                    <MenuItem Header="_Автомобіль" />
+                    <MenuItem Header="_Компанію" />
+                </MenuItem>
+                <MenuItem Header="_Показати">
+                    <MenuItem Header="_Заявки" />
+                    <MenuItem Header="_Звіти" />
+                </MenuItem>
+                <MenuItem Header="_Створити">
+                    <MenuItem Header="_Документ_1" />
+                    <MenuItem Header="_Документ_2" />
+                </MenuItem>
+            </Menu>
+
+        </DockPanel>
     </Grid>
 </Window>

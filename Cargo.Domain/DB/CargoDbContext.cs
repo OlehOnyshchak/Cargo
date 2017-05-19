@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using Cargo.Domain.Entities;
 
-namespace Cargo.Domain.Context
+namespace Cargo.Domain.DB
 {
     public partial class CargoDbContext : DbContext
     {
