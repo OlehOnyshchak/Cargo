@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Cargo.UI.Models
+namespace Cargo.Controller.Models
 {
     class AddDriverModel
     {

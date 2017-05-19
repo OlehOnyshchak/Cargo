@@ -3,10 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Cargo.Controller.Models;
 
 namespace Cargo.Controller
 {
-    public class Class1
+    class DriverController
     {
+        public bool OnAddDriver(AddDriverModel model)
+        {
+            return false;
+        }
     }
 }
