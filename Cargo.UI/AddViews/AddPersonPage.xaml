@@ -3,14 +3,14 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:sys="clr-namespace:System;assembly=mscorlib" 
     xmlns:Models="clr-namespace:Cargo.Controller.Models;assembly=Cargo.Controller"
-    x:Class="Cargo.UI.AddViews.AddBankPage" 
+    x:Class="Cargo.UI.AddViews.AddPersonPage"
     x:TypeArguments="Models:CompanyModel"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:Cargo.UI.AddViews"
     mc:Ignorable="d"
     d:DesignHeight="300" d:DesignWidth="300"
-    Title="AddBankPage">
+    Title="AddPerson">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="150"/>
@@ -18,36 +18,36 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
-             <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
 
-        <Label Content="Bank's Name" Grid.Row="0" Grid.Column="0"
+        <Label Content="Given Name" Grid.Row="0" Grid.Column="0"
                 HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <TextBox HorizontalAlignment="Stretch" Height="23" TextWrapping="Wrap"
                 VerticalAlignment="Center" Grid.Row="0"  Grid.Column="1" Margin="15,0,15,0"
-                     Text="{Binding Path=BankName, Mode=OneWayToSource}"/>
+                     Text="{Binding Path=GivenName, Mode=OneWayToSource}"/>
 
 
-        <Label Content="Bank's Tax Number" Grid.Row="1" Grid.Column="0"
+        <Label Content="Middle Name" Grid.Row="1" Grid.Column="0"
                 HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <TextBox HorizontalAlignment="Stretch" Height="23" TextWrapping="Wrap"
                 VerticalAlignment="Center" Grid.Row="1" Grid.Column="1" Margin="15,0,15,0"
-                     Text="{Binding Path=TaxNumber, Mode=OneWayToSource}"/>
+                     Text="{Binding Path=MiddleName, Mode=OneWayToSource}"/>
 
-        <Label Content="Client's Account Number" Grid.Row="2" Grid.Column="0"
+        <Label Content="Family Name" Grid.Row="2" Grid.Column="0"
                 HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <TextBox HorizontalAlignment="Stretch" Height="23" TextWrapping="Wrap"
                 VerticalAlignment="Center" Grid.Row="2" Grid.Column="1" Margin="15,0,15,0"
-                     Text="{Binding Path=ClientAccount, Mode=OneWayToSource}"/>
+                     Text="{Binding Path=FamilyName, Mode=OneWayToSource}"/>
 
 
         <Separator Grid.Row="2" Grid.ColumnSpan="2" VerticalAlignment="Bottom"/>
 
         <Button Content="Back" Grid.Column="0" Grid.Row="5" VerticalAlignment="Center" 
                 Command="{x:Static NavigationCommands.BrowseBack}" Margin="15,0,15,0"/>
-        <Button Content="Next" Grid.Column="1" Grid.Row="5" VerticalAlignment="Center" 
-                Click="NextButton_Click" Margin="15,15" MaxWidth="120"/>
+        <Button Content="Submit" Grid.Column="1" Grid.Row="5" VerticalAlignment="Center" 
+                Click="SubmitButton_Click" Margin="15,15" MaxWidth="120"/>
     </Grid>
 </PageFunction>

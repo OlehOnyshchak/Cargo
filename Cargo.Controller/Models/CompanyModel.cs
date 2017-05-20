@@ -13,6 +13,6 @@ namespace Cargo.Controller.Models
         public AddressModel LegalAddressModel;
         public AddressModel ActualAddressModel;
         public BankModel BankModel;
-        public PersonModel Person;
+        public PersonModel PersonModel;
     }
 }

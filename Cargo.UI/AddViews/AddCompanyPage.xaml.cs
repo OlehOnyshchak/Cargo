@@ -40,6 +40,7 @@ namespace Cargo.UI.AddViews
             this.DataContext = model.GeneralModel;
 
             this.KeepAlive = true;
+            Application.Current.MainWindow.Title = "Add Company - Step 1";
         }
 
         private void NextButton_Click(object sender, RoutedEventArgs e)
@@ -68,13 +69,12 @@ namespace Cargo.UI.AddViews
 
         private void NewCompanyAdded(object sender, ReturnEventArgs<CompanyModel> e)
         {
-            // TODO: save to BD
-            CompanyModel m = e.Result;
             this.OnReturn(null);
         }
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
+            Application.Current.MainWindow.Title = "Main Window";
             this.OnReturn(null);
         }
     }

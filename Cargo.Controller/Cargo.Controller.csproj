@@ -47,6 +47,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddressController.cs" />
+    <Compile Include="BankController.cs" />
     <Compile Include="CompanyController.cs" />
     <Compile Include="Controller.cs" />
     <Compile Include="DriverController.cs" />
@@ -56,6 +58,7 @@
     <Compile Include="Models\CompanyModel.cs" />
     <Compile Include="Models\DriverModels.cs" />
     <Compile Include="Models\PersonModel.cs" />
+    <Compile Include="PersonController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
