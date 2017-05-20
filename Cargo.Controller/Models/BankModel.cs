@@ -11,10 +11,11 @@ namespace Cargo.Controller.Models
     {
         private string name;
         private string taxNum;
+        private string clientAccount;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public string Name
+        public string BankName
         {
             get { return name; }
             set
@@ -31,6 +32,16 @@ namespace Cargo.Controller.Models
             {
                 taxNum = value;
                 OnPropertyChanged("TaxNumber");
+            }
+        }
+
+        public string ClientAccount
+        {
+            get { return clientAccount; }
+            set
+            {
+                clientAccount = value;
+                OnPropertyChanged("BankNumber");
             }
         }
 

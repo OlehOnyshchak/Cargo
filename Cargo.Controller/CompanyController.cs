@@ -29,6 +29,13 @@ namespace Cargo.Controller
             return success;
         }
 
+        public bool Validate(CompanyGeneralModel model, out string error)
+        {
+            // TODO: implement
+            error = Controller.Success;
+            return true;
+        }
+
         private bool GenerateCompanyObject(CompanyModel model, out Company company)
         {
             company = null;

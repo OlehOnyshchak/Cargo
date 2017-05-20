@@ -26,29 +26,29 @@ namespace Cargo.UI
         public MainWindow()
         {
             InitializeComponent();
-            _mainFrame.NavigationService.Navigate(new AboutPage());
+            _mainFrame.Navigate(new AboutPage());
         }
 
         // TODO: implement this awesome feature!
         //  _mainFrame.NavigationService.Navigate(new Uri("http://www.google.com/"));
         private void AddDriver_Click(object sender, RoutedEventArgs e)
         {
-            _mainFrame.NavigationService.Navigate(new AddDriverPage());
+            _mainFrame.Navigate(new AddDriverPage());
         }
 
         private void AddVehicle_Click(object sender, RoutedEventArgs e)
         {
-            _mainFrame.NavigationService.Navigate(new Uri("http://www.google.com/"));
+            _mainFrame.Navigate(new Uri("http://www.google.com/"));
         }
 
         private void AddCompany_Click(object sender, RoutedEventArgs e)
         {
-            _mainFrame.NavigationService.Navigate(new AddCompanyPage());
+            _mainFrame.Navigate(new AddCompanyPage());
         }
 
         private void ShowDriver_Click(object sender, RoutedEventArgs e)
         {
-            _mainFrame.NavigationService.Navigate(new ShowDriversPage());
+            _mainFrame.Navigate(new ShowDriversPage());
         }
     }
 }

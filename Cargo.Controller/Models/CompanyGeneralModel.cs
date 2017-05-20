@@ -12,7 +12,6 @@ namespace Cargo.Controller.Models
     {
         private string title;
         private string taxNum;
-        private string bankNum;
         private string email;
         private string phone;
         private string companyType;
@@ -37,16 +36,6 @@ namespace Cargo.Controller.Models
                 taxNum = value;
                 OnPropertyChanged("TaxNumber");
 }
-        }
-
-        public string BankNumber  
-        {
-            get { return bankNum; }
-            set
-            {
-                bankNum = value;
-                OnPropertyChanged("BankNumber");
-            }
         }
 
         public string Email     

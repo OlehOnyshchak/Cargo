@@ -62,10 +62,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddViews\AddBankPage.xaml.cs">
+      <DependentUpon>AddBankPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ShowViews\ShowDriversPage.xaml.cs">
       <DependentUpon>ShowDriversPage.xaml</DependentUpon>
     </Compile>
     <Page Include="AboutPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddViews\AddBankPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

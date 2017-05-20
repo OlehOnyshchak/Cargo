@@ -24,6 +24,7 @@ namespace Cargo.UI.AddViews
     {
         private CompanyModel model = new CompanyModel();
         private List<string> companyTypes = new List<string>();
+        private CompanyController controller = new CompanyController();
 
         public AddCompanyPage()
         {
@@ -41,6 +42,26 @@ namespace Cargo.UI.AddViews
 
         private void NextButton_Click(object sender, RoutedEventArgs e)
         {
+            string error;
+            if (controller.Validate(model.GeneralModel, out error))
+            {
+                var frame = Application.Current.MainWindow.FindName("_mainFrame") as Frame;
+                var nextPage = new AddBankPage(model);
+                nextPage.Return += new ReturnEventHandler<CompanyModel>(NewCompanyAdded);
+
+                frame.Navigate(nextPage);
+            }
+            else
+            {
+                MessageBox.Show(error, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void NewCompanyAdded(object sender, ReturnEventArgs<CompanyModel> e)
+        {
+            // TODO: save to BD
+            CompanyModel m = e.Result;
+            this.OnReturn(null);
         }
     }
 }
