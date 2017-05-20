@@ -64,6 +64,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Concrete\CompanyRepository.cs" />
     <Compile Include="Concrete\DriverRepository.cs" />
     <Compile Include="Concrete\Repository.cs" />
     <Compile Include="Entities\Address.cs" />
@@ -85,6 +86,7 @@
     <Compile Include="Entities\ServiceSpending.cs" />
     <Compile Include="Entities\Vehicle.cs" />
     <Compile Include="Entities\WarehouseItem.cs" />
+    <Compile Include="Interfaces\ICompanyRepository.cs" />
     <Compile Include="Interfaces\IDriverRepository.cs" />
     <Compile Include="Migrations\201705201806037_InitialCreate.cs" />
     <Compile Include="Migrations\201705201806037_InitialCreate.Designer.cs">

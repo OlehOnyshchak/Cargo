@@ -71,6 +71,7 @@ namespace Cargo.Domain.Entities
     {
         Mine = 1,
         Client = 2,
-        Supplier = 4
+        Supplier = 4,
+        Both = Client | Supplier
     };
 }

@@ -11,7 +11,7 @@ namespace Cargo.Domain.DB
         public CargoDbContext()
             : base("name=CargoDbContext")
         {
-            this.Configuration.LazyLoadingEnabled = true;
+            this.Configuration.LazyLoadingEnabled = false;
         }
 
         public virtual DbSet<Address> Addresses { get; set; }

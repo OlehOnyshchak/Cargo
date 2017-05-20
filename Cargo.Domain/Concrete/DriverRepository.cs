@@ -38,7 +38,6 @@ namespace Cargo.Domain.Concrete
                 IList<Driver> drivers;
                 using (var db = new CargoDbContext())
                 {
-                    db.Configuration.LazyLoadingEnabled = false;
                     drivers = db.Drivers.ToList();
                     foreach (var driver in drivers)
                     {
