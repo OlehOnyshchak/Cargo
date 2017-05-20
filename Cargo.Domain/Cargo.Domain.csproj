@@ -86,6 +86,10 @@
     <Compile Include="Entities\Vehicle.cs" />
     <Compile Include="Entities\WarehouseItem.cs" />
     <Compile Include="Interfaces\IDriverRepository.cs" />
+    <Compile Include="Migrations\201705201806037_InitialCreate.cs" />
+    <Compile Include="Migrations\201705201806037_InitialCreate.Designer.cs">
+      <DependentUpon>201705201806037_InitialCreate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -109,6 +113,11 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201705201806037_InitialCreate.resx">
+      <DependentUpon>201705201806037_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
