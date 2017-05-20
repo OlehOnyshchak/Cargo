@@ -7,31 +7,13 @@ using System.ComponentModel;
 
 namespace Cargo.Controller.Models
 {
-    public class DriverModel : INotifyPropertyChanged
+    public class PersonModel : INotifyPropertyChanged
     {
-        // TODO: replace names with PersonModel
-        private string pass;
         private string gName;
         private string mName;
         private string fName;
-        private double rate; 
 
         public event PropertyChangedEventHandler PropertyChanged;
-
-        public DriverModel()
-        {
-            InterestRate = -1.0;
-        }
-
-        public string PassportNumber
-        {
-            get { return pass; }
-            set
-            {
-                pass = value;
-                OnPropertyChanged("PassportNumber");
-            }
-        }
 
         public string GivenName
         {
@@ -42,7 +24,7 @@ namespace Cargo.Controller.Models
                 OnPropertyChanged("GivenName");
             }
         }
-
+                               
         public string MiddleName
         {
             get { return mName; }
@@ -52,7 +34,7 @@ namespace Cargo.Controller.Models
                 OnPropertyChanged("MiddleName");
             }
         }
-
+                                
         public string FamilyName
         {
             get { return fName; }
@@ -60,16 +42,6 @@ namespace Cargo.Controller.Models
             {
                 fName = value;
                 OnPropertyChanged("FamilyName");
-            }
-        }
-
-        public double InterestRate
-        {
-            get { return rate; }
-            set
-            {
-                rate = value;
-                OnPropertyChanged("InterestRate");
             }
         }
 

@@ -39,6 +39,12 @@ namespace Cargo.Domain.Entities
 
         public CompanyType CompanyType { get; set; }
 
+        [StringLength(55)]
+        public string Email { get; set; }
+
+        [StringLength(15)]
+        public string Phone { get; set; }
+
         [ForeignKey("fLegalAddress")]
         public virtual Address LegalAddress { get; set; }
 

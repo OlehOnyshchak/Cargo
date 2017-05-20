@@ -94,6 +94,10 @@
     <Compile Include="Migrations\201705201814115_AddCompanyTitle.Designer.cs">
       <DependentUpon>201705201814115_AddCompanyTitle.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705201841199_SyncCompaniesEmailPhone_withDbColumns.cs" />
+    <Compile Include="Migrations\201705201841199_SyncCompaniesEmailPhone_withDbColumns.Designer.cs">
+      <DependentUpon>201705201841199_SyncCompaniesEmailPhone_withDbColumns.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -124,6 +128,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705201814115_AddCompanyTitle.resx">
       <DependentUpon>201705201814115_AddCompanyTitle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705201841199_SyncCompaniesEmailPhone_withDbColumns.resx">
+      <DependentUpon>201705201841199_SyncCompaniesEmailPhone_withDbColumns.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
