@@ -43,9 +43,13 @@ namespace Cargo.UI.AddViews
             }
             else
             {
-                MessageBox.Show(error, "Error",
-                    MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(error, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        private void CancelButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.OnReturn(null);
         }
     }
 }

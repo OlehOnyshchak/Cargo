@@ -58,7 +58,7 @@
         <Separator Grid.Row="4" Grid.ColumnSpan="2" VerticalAlignment="Bottom"/>
 
         <Button Content="Cancel" Grid.Column="0" Grid.Row="5" VerticalAlignment="Center" 
-                Command="{x:Static NavigationCommands.BrowseBack}" Margin="15,0,15,0"/>
+                Click="CancelButton_Click"  Margin="15,0,15,0"/>
         <Button Content="Submit" Grid.Column="1" Grid.Row="5" VerticalAlignment="Center" 
                 Click="AddDriver_Click" Margin="15,15" MaxWidth="120"/>
     </Grid>

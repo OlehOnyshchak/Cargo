@@ -38,6 +38,8 @@ namespace Cargo.UI.AddViews
 
             model.GeneralModel = new CompanyGeneralModel();
             this.DataContext = model.GeneralModel;
+
+            this.KeepAlive = true;
         }
 
         private void NextButton_Click(object sender, RoutedEventArgs e)
@@ -46,10 +48,17 @@ namespace Cargo.UI.AddViews
             if (controller.Validate(model.GeneralModel, out error))
             {
                 var frame = Application.Current.MainWindow.FindName("_mainFrame") as Frame;
-                var nextPage = new AddBankPage(model);
-                nextPage.Return += new ReturnEventHandler<CompanyModel>(NewCompanyAdded);
+                if (frame.CanGoForward)
+                {
+                    frame.GoForward();
+                }
+                else
+                {
+                    var nextPage = new AddBankPage(model);
+                    nextPage.Return += new ReturnEventHandler<CompanyModel>(NewCompanyAdded);
 
-                frame.Navigate(nextPage);
+                    frame.Navigate(nextPage);
+                }
             }
             else
             {
@@ -61,6 +70,11 @@ namespace Cargo.UI.AddViews
         {
             // TODO: save to BD
             CompanyModel m = e.Result;
+            this.OnReturn(null);
+        }
+
+        private void CancelButton_Click(object sender, RoutedEventArgs e)
+        {
             this.OnReturn(null);
         }
     }

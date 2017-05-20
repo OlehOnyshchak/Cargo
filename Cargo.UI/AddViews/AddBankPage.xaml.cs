@@ -31,6 +31,8 @@ namespace Cargo.UI.AddViews
             model = Model;
             model.BankModel = new BankModel();
             this.DataContext = model.BankModel;
+
+             this.KeepAlive = true;
         }
 
         private void NextButton_Click(object sender, RoutedEventArgs e)
