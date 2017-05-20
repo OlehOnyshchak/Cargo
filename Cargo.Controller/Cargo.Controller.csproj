@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DriverController.cs" />
+    <Compile Include="Models\CompanyModel.cs" />
     <Compile Include="Models\DriverModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

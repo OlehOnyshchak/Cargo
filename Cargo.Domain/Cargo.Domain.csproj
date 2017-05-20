@@ -86,6 +86,7 @@
     <Compile Include="Entities\Vehicle.cs" />
     <Compile Include="Entities\WarehouseItem.cs" />
     <Compile Include="Interfaces\IDriverRepository.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

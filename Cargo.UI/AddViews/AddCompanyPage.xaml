@@ -11,6 +11,55 @@
     d:DesignHeight="300" d:DesignWidth="300"
     Title="AddCompanyPage">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
 
+        <Label Content="Given Name" Grid.Row="0" Grid.Column="0"
+                HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBox x:Name="m_textGivenName" HorizontalAlignment="Stretch" Height="23" TextWrapping="Wrap"
+                VerticalAlignment="Center" Grid.Row="0"  Grid.Column="1" Margin="15,0,15,0"
+                     Text="{Binding Path=GivenName, Mode=OneWayToSource}"/>
+
+
+        <Label Content="Middle Name" Grid.Row="1" Grid.Column="0"
+                HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBox x:Name="m_textMiddleName" HorizontalAlignment="Stretch" Height="23" TextWrapping="Wrap"
+                VerticalAlignment="Center" Grid.Row="1" Grid.Column="1" Margin="15,0,15,0"
+                     Text="{Binding Path=MiddleName, Mode=OneWayToSource}"/>
+
+        <Label Content="Family Name" Grid.Row="2" Grid.Column="0"
+                HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBox x:Name="m_textFamilyName" HorizontalAlignment="Stretch" Height="23" TextWrapping="Wrap"
+                VerticalAlignment="Center" Grid.Row="2" Grid.Column="1" Margin="15,0,15,0"
+                     Text="{Binding Path=FamilyName, Mode=OneWayToSource}"/>
+
+        <Label Content="Passport Number" Grid.Row="3" Grid.Column="0"
+                HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBox x:Name="m_textPassport" HorizontalAlignment="Stretch" Height="23" TextWrapping="Wrap"
+                VerticalAlignment="Center" Grid.Row="3" Grid.Column="1" Margin="15,0,15,0"
+                     Text="{Binding Path=PassportNumber, Mode=OneWayToSource}"/>
+
+        <Label Content="Interest Rate" Grid.Row="4" Grid.Column="0"
+                HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBox x:Name="m_textRate" HorizontalAlignment="Stretch" Height="23" TextWrapping="Wrap"
+                VerticalAlignment="Center" Grid.Row="4" Grid.Column="1" Margin="15,0,15,0"
+                     Text="{Binding Path=InterestRate, Mode=OneWayToSource}"/>
+
+        <Separator Grid.Row="4" Grid.ColumnSpan="2" VerticalAlignment="Bottom"/>
+
+        <Button Content="Cancel" Grid.Column="0" Grid.Row="5" VerticalAlignment="Center" 
+                Command="{x:Static NavigationCommands.BrowseBack}" Margin="15,0,15,0"/>
+        <Button Content="Submit" Grid.Column="1" Grid.Row="5" VerticalAlignment="Center" 
+                 Margin="15,15" MaxWidth="120"/>
     </Grid>
 </PageFunction>
