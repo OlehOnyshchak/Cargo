@@ -18,6 +18,10 @@ namespace Cargo.Domain.Entities
         public int CompanyId { get; set; }
 
         [Required]
+        [StringLength(50)]
+        public string Title { get; set; }
+
+        [Required]
         [StringLength(10)]
         public string TaxNumber { get; set; }
 
