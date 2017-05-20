@@ -9,22 +9,36 @@ using Cargo.Domain.Entities;
 
 namespace Cargo.Domain.Concrete
 {
-    class DriverRepository : Repository,  IDriverRepository
+    public class DriverRepository : IDriverRepository
     {
         public bool Add(Driver driver)
         {
-            if (driver.Person == null)
+            bool updated = false;
+            using (var db = new CargoDbContext())
             {
-                return false;
+                if (driver.Person == null)
+                {
+                    return false;
+                }
+
+                var dr = db.Drivers.ToList();
+
+                db.Drivers.Add(driver);
+                updated = Repository.SaveChanges(db);
             }
 
-            context.Drivers.Add(driver);
-            return base.SaveChanges();
+            return updated;
         }
 
         public IEnumerable<Driver> Drivers
         {
-            get { return context.Drivers; }
+            get
+            {
+                using (var db = new CargoDbContext())
+                {
+                    return db.Drivers;
+                }
+            }
         }
     }
 }

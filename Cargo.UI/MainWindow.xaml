@@ -5,18 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Cargo.UI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="409.323" Width="699.465">
+        Title="MainWindow" Height="409.323" Width="699.465"
+        MinWidth="300" MinHeight="300">
     
     <Grid>
         <DockPanel>
             <Menu DockPanel.Dock="Top">
+                <MenuItem Header="_Program">
+                    <MenuItem Header="_About" />
+                    <MenuItem Header="_Help" />
+                    <Separator />
+                    <MenuItem Header="_Exit" />
+                </MenuItem>
                 <MenuItem Header="_Add">
                     <MenuItem Header="_Application" />
                     <MenuItem Header="_RouteReport" />
                     <Separator />
-                    <MenuItem Header="_Driver" Click="OnAddDriverClick" />
-                    <MenuItem Header="_Vehicle" Click="OnAddVehicleClick" />
-                    <MenuItem Header="_Company" />
+                    <MenuItem Header="_Driver" Click="AddDriver_Click" />
+                    <MenuItem Header="_Vehicle" Click="AddVehicle_Click" />
+                    <MenuItem Header="_Company" Click="AddCompany_Click" />
                 </MenuItem>
                 <MenuItem Header="_Show">
                     <MenuItem Header="_Applications" />
@@ -28,6 +35,9 @@
                 </MenuItem>
             </Menu>
 
+            <Frame x:Name="_mainFrame">
+                
+            </Frame>
         </DockPanel>
     </Grid>
 </Window>

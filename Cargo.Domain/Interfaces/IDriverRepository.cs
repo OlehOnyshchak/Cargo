@@ -7,7 +7,7 @@ using Cargo.Domain.Entities;
 
 namespace Cargo.Domain.Interfaces
 {
-    interface IDriverRepository
+    public interface IDriverRepository
     {
         bool Add(Driver driver);
 

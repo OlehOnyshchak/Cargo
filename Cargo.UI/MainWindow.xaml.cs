@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Cargo.Controller;
+using Cargo.UI.AddViews;
 
 namespace Cargo.UI
 {
@@ -24,16 +25,24 @@ namespace Cargo.UI
         public MainWindow()
         {
             InitializeComponent();
+            _mainFrame.NavigationService.Navigate(new AboutPage());
         }
 
-        private void OnAddDriverClick(object sender, RoutedEventArgs e)
+        // TODO: implement this awesome feature!
+        //  _mainFrame.NavigationService.Navigate(new Uri("http://www.google.com/"));
+        private void AddDriver_Click(object sender, RoutedEventArgs e)
         {
-
+            _mainFrame.NavigationService.Navigate(new AddDriverPage());
         }
 
-        private void OnAddVehicleClick(object sender, RoutedEventArgs e)
+        private void AddVehicle_Click(object sender, RoutedEventArgs e)
         {
+            _mainFrame.NavigationService.Navigate(new Uri("http://www.google.com/"));
+        }
 
+        private void AddCompany_Click(object sender, RoutedEventArgs e)
+        {
+            _mainFrame.NavigationService.Navigate(new Uri("http://www.google.com/"));
         }
     }
 }

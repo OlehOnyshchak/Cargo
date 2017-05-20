@@ -7,11 +7,9 @@ using Cargo.Domain.DB;
 
 namespace Cargo.Domain.Concrete
 {
-    class Repository
+    public static class Repository
     {
-        protected CargoDbContext context = new CargoDbContext();
-
-        public bool SaveChanges()
+        public static bool SaveChanges(CargoDbContext context)
         {
             bool succeeded = true;
             try
