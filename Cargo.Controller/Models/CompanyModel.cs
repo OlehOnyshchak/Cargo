@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace Cargo.Controller.Models
 {
-    class CompanyModel
+    public class CompanyModel
     {
+        public string Title;
+        public string TaxNumber;
     }
 }

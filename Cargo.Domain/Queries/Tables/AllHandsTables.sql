@@ -49,8 +49,8 @@ CREATE TABLE [dbo].[Companies] (
 	[fBank] INT NOT NULL,
 	[BankNumber] NVARCHAR(30) NOT NULL,
 	[LogicalType] INT NOT NULL,
-	[Phone] NVARCHAR(15) NULL,
-	[Email] NVARCHAR(55) NULL,
+/*	[Phone] NVARCHAR(15) NULL,
+	[Email] NVARCHAR(55) NULL,*/
 
 	CONSTRAINT [PK_Company] PRIMARY KEY CLUSTERED ([CompanyId] ASC),
 
