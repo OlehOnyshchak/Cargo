@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Cargo.Controller;
+using Cargo.Controller.Models;
 
 namespace Cargo.UI.AddViews
 {
@@ -20,9 +22,25 @@ namespace Cargo.UI.AddViews
     /// </summary>
     public partial class AddCompanyPage : PageFunction<String>
     {
+        private CompanyModel model = new CompanyModel();
+        private List<string> companyTypes = new List<string>();
+
         public AddCompanyPage()
         {
             InitializeComponent();
+
+            companyTypes.Add("Client");
+            companyTypes.Add("Supplier");
+            companyTypes.Add("Both");
+            this.m_comboBoxType.ItemsSource = companyTypes;
+            this.m_comboBoxType.SelectedIndex = 0;
+
+            model.GeneralModel = new CompanyGeneralModel();
+            this.DataContext = model.GeneralModel;
+        }
+
+        private void NextButton_Click(object sender, RoutedEventArgs e)
+        {
         }
     }
 }

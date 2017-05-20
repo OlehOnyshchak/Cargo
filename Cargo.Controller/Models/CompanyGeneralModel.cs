@@ -15,7 +15,7 @@ namespace Cargo.Controller.Models
         private string bankNum;
         private string email;
         private string phone;
-        private CompanyType companyType;
+        private string companyType;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -69,7 +69,7 @@ namespace Cargo.Controller.Models
             }
         }
 
-        public CompanyType CompanyType
+        public string CompanyType
         {
             get { return companyType; }
             set

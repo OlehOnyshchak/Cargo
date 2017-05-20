@@ -43,7 +43,7 @@ namespace Cargo.UI
 
         private void AddCompany_Click(object sender, RoutedEventArgs e)
         {
-            _mainFrame.NavigationService.Navigate(new Uri("http://www.google.com/"));
+            _mainFrame.NavigationService.Navigate(new AddCompanyPage());
         }
 
         private void ShowDriver_Click(object sender, RoutedEventArgs e)

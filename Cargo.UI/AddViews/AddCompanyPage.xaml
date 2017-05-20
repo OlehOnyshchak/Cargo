@@ -21,45 +21,52 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
 
-        <Label Content="Given Name" Grid.Row="0" Grid.Column="0"
+        <Label Content="Title" Grid.Row="0" Grid.Column="0"
                 HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <TextBox x:Name="m_textGivenName" HorizontalAlignment="Stretch" Height="23" TextWrapping="Wrap"
+        <TextBox HorizontalAlignment="Stretch" Height="23" TextWrapping="Wrap"
                 VerticalAlignment="Center" Grid.Row="0"  Grid.Column="1" Margin="15,0,15,0"
-                     Text="{Binding Path=GivenName, Mode=OneWayToSource}"/>
+                     Text="{Binding Path=Title, Mode=OneWayToSource}"/>
 
 
-        <Label Content="Middle Name" Grid.Row="1" Grid.Column="0"
+        <Label Content="Tax Number" Grid.Row="1" Grid.Column="0"
                 HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <TextBox x:Name="m_textMiddleName" HorizontalAlignment="Stretch" Height="23" TextWrapping="Wrap"
+        <TextBox HorizontalAlignment="Stretch" Height="23" TextWrapping="Wrap"
                 VerticalAlignment="Center" Grid.Row="1" Grid.Column="1" Margin="15,0,15,0"
-                     Text="{Binding Path=MiddleName, Mode=OneWayToSource}"/>
+                     Text="{Binding Path=TaxNumber, Mode=OneWayToSource}"/>
 
-        <Label Content="Family Name" Grid.Row="2" Grid.Column="0"
+        <Label Content="Bank Number" Grid.Row="2" Grid.Column="0"
                 HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <TextBox x:Name="m_textFamilyName" HorizontalAlignment="Stretch" Height="23" TextWrapping="Wrap"
+        <TextBox HorizontalAlignment="Stretch" Height="23" TextWrapping="Wrap"
                 VerticalAlignment="Center" Grid.Row="2" Grid.Column="1" Margin="15,0,15,0"
-                     Text="{Binding Path=FamilyName, Mode=OneWayToSource}"/>
+                     Text="{Binding Path=BankNumber, Mode=OneWayToSource}"/>
 
-        <Label Content="Passport Number" Grid.Row="3" Grid.Column="0"
+        <Label Content="Email" Grid.Row="3" Grid.Column="0"
                 HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <TextBox x:Name="m_textPassport" HorizontalAlignment="Stretch" Height="23" TextWrapping="Wrap"
+        <TextBox HorizontalAlignment="Stretch" Height="23" TextWrapping="Wrap"
                 VerticalAlignment="Center" Grid.Row="3" Grid.Column="1" Margin="15,0,15,0"
-                     Text="{Binding Path=PassportNumber, Mode=OneWayToSource}"/>
+                     Text="{Binding Path=Email, Mode=OneWayToSource}"/>
 
-        <Label Content="Interest Rate" Grid.Row="4" Grid.Column="0"
+        <Label Content="Phone" Grid.Row="4" Grid.Column="0"
                 HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <TextBox x:Name="m_textRate" HorizontalAlignment="Stretch" Height="23" TextWrapping="Wrap"
+        <TextBox HorizontalAlignment="Stretch" Height="23" TextWrapping="Wrap"
                 VerticalAlignment="Center" Grid.Row="4" Grid.Column="1" Margin="15,0,15,0"
-                     Text="{Binding Path=InterestRate, Mode=OneWayToSource}"/>
+                     Text="{Binding Path=Phone, Mode=OneWayToSource}"/>
+        
+        <Label Content="Company Type" Grid.Row="5" Grid.Column="0"
+                HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <ComboBox x:Name="m_comboBoxType" HorizontalAlignment="Stretch" Height="23"
+                VerticalAlignment="Center" Grid.Row="5" Grid.Column="1" Margin="15,0,15,0"
+                     Text="{Binding Path=CompanyType, Mode=OneWayToSource}"/>
 
-        <Separator Grid.Row="4" Grid.ColumnSpan="2" VerticalAlignment="Bottom"/>
+        <Separator Grid.Row="5" Grid.ColumnSpan="2" VerticalAlignment="Bottom"/>
 
-        <Button Content="Cancel" Grid.Column="0" Grid.Row="5" VerticalAlignment="Center" 
+        <Button Content="Cancel" Grid.Column="0" Grid.Row="6" VerticalAlignment="Center" 
                 Command="{x:Static NavigationCommands.BrowseBack}" Margin="15,0,15,0"/>
-        <Button Content="Submit" Grid.Column="1" Grid.Row="5" VerticalAlignment="Center" 
-                 Margin="15,15" MaxWidth="120"/>
+        <Button Content="Next" Grid.Column="1" Grid.Row="6" VerticalAlignment="Center" 
+                 Margin="15,15" MaxWidth="120" Click="NextButton_Click"/>
     </Grid>
 </PageFunction>

@@ -34,6 +34,7 @@ namespace Cargo.Controller
             company = null;
             return false;
         }
+
         private bool Validate(CompanyModel model, out string error)
         {
             // TODO: implement
