@@ -9,11 +9,18 @@ using Cargo.Domain.Entities;
 
 namespace Cargo.Domain.Concrete
 {
-    class CompanyRepository : ICompanyRepository
+    public class CompanyRepository : ICompanyRepository
     {
         public bool Add(Company company)
         {
-            return false;
+            bool updated = false;
+            using (var db = new CargoDbContext())
+            {
+                db.Companies.Add(company);
+                updated = Repository.SaveChanges(db);
+            }
+
+            return updated;
         }
 
         public IList<Company> Drivers

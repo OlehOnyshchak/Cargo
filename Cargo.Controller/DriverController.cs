@@ -24,8 +24,7 @@ namespace Cargo.Controller
             this.GenerateDriverObject(model, out driver);
 
             bool success = driverRep.Add(driver);
-            error = success ? 
-                "Success" : "Some internal error occured during updating DB. Please, restart the program";
+            error = success ? Controller.Success : Controller.InternalErrorMessage;
 
             return success;
         }
@@ -33,7 +32,7 @@ namespace Cargo.Controller
         private bool Validate(DriverModel model, out string error)
         {
             // TODO: implement
-            error = "Success";
+            error = Controller.Success;
             return true;
         }
 

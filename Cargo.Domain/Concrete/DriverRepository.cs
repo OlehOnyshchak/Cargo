@@ -17,13 +17,6 @@ namespace Cargo.Domain.Concrete
             bool updated = false;
             using (var db = new CargoDbContext())
             {
-                if (driver.Person == null)
-                {
-                    return false;
-                }
-
-                var dr = db.Drivers.ToList();
-
                 db.Drivers.Add(driver);
                 updated = Repository.SaveChanges(db);
             }

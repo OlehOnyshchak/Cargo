@@ -7,7 +7,7 @@ using Cargo.Domain.Entities;
 
 namespace Cargo.Domain.Interfaces
 {
-    interface ICompanyRepository
+    public interface ICompanyRepository
     {
         bool Add(Company driver);
 

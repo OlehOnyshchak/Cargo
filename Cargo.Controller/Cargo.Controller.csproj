@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CompanyController.cs" />
+    <Compile Include="Controller.cs" />
     <Compile Include="DriverController.cs" />
     <Compile Include="Models\AddressModel.cs" />
     <Compile Include="Models\BankModel.cs" />
