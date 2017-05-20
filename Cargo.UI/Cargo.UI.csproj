@@ -62,11 +62,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ShowViews\ShowDriversPage.xaml.cs">
+      <DependentUpon>ShowDriversPage.xaml</DependentUpon>
+    </Compile>
     <Page Include="AboutPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="AddCompanyPage.xaml">
+    <Page Include="AddViews\AddCompanyPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -81,7 +84,7 @@
     <Compile Include="AboutPage.xaml.cs">
       <DependentUpon>AboutPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AddCompanyPage.xaml.cs">
+    <Compile Include="AddViews\AddCompanyPage.xaml.cs">
       <DependentUpon>AddCompanyPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="AddViews\AddDriverPage.xaml.cs">
@@ -95,6 +98,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="ShowViews\ShowDriversPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -129,5 +136,6 @@
       <Name>Cargo.Controller</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

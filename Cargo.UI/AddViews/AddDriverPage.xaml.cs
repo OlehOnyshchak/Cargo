@@ -33,7 +33,8 @@ namespace Cargo.UI.AddViews
 
         private void AddDriver_Click(object sender, RoutedEventArgs e)
         {
-            if (dController.OnAddDriver(model))
+            string error;
+            if (dController.OnAddDriver(model, out error))
             {
                 MessageBox.Show("Operation finished successfully", "Notification",
                     MessageBoxButton.OK, MessageBoxImage.Exclamation);
@@ -42,7 +43,7 @@ namespace Cargo.UI.AddViews
             }
             else
             {
-                MessageBox.Show("You filed incorect data", "Error",
+                MessageBox.Show(error, "Error",
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }

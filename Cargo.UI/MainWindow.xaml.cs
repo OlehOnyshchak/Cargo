@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Cargo.Controller;
 using Cargo.UI.AddViews;
+using Cargo.UI.ShowViews;
 
 namespace Cargo.UI
 {
@@ -47,7 +48,7 @@ namespace Cargo.UI
 
         private void ShowDriver_Click(object sender, RoutedEventArgs e)
         {
-            _mainFrame.NavigationService.Navigate(new AddDriverPage());
+            _mainFrame.NavigationService.Navigate(new ShowDriversPage());
         }
     }
 }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Cargo.Domain.Interfaces;
 using Cargo.Domain.DB;
 using Cargo.Domain.Entities;
+using System.Data.Entity;
 
 namespace Cargo.Domain.Concrete
 {
@@ -30,14 +31,22 @@ namespace Cargo.Domain.Concrete
             return updated;
         }
 
-        public IEnumerable<Driver> Drivers
+        public IList<Driver> Drivers
         {
             get
             {
+                IList<Driver> drivers;
                 using (var db = new CargoDbContext())
                 {
-                    return db.Drivers;
+                    db.Configuration.LazyLoadingEnabled = false;
+                    drivers = db.Drivers.ToList();
+                    foreach (var driver in drivers)
+                    {
+                        db.Entry(driver).Reference(d => d.Person).Load();
+                    }
                 }
+
+                return drivers;
             }
         }
     }

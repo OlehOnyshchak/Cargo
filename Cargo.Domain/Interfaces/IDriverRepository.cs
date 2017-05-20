@@ -11,6 +11,6 @@ namespace Cargo.Domain.Interfaces
     {
         bool Add(Driver driver);
 
-        IEnumerable<Driver> Drivers { get; }
+        IList<Driver> Drivers { get; }
     }
 }
