@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Cargo.UI
+namespace Cargo.UI.AddViews
 {
     /// <summary>
     /// Interaction logic for AddCompanyPage.xaml

@@ -44,5 +44,10 @@ namespace Cargo.UI
         {
             _mainFrame.NavigationService.Navigate(new Uri("http://www.google.com/"));
         }
+
+        private void ShowDriver_Click(object sender, RoutedEventArgs e)
+        {
+            _mainFrame.NavigationService.Navigate(new AddDriverPage());
+        }
     }
 }

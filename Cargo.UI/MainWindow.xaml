@@ -28,6 +28,10 @@
                 <MenuItem Header="_Show">
                     <MenuItem Header="_Applications" />
                     <MenuItem Header="_Reports" />
+                    <Separator />
+                    <MenuItem Header="_Driveres" Click="ShowDriver_Click" />
+                    <MenuItem Header="_Vehicles"  />
+                    <MenuItem Header="_Companies"  />
                 </MenuItem>
                 <MenuItem Header="_Generate">
                     <MenuItem Header="_Document_1" />

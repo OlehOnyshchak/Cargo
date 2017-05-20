@@ -1,0 +1,2 @@
+1) Add "isActive" column to Vehicle and Driver tables. Then in each view and checkboxes query for only
+	active items. Disabled (sold, fired) items will still be available in archive.
