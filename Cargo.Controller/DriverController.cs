@@ -31,6 +31,18 @@ namespace Cargo.Controller
 
         private bool Validate(DriverModel model, out string error)
         {
+            if (String.IsNullOrWhiteSpace(model.PassportNumber))
+            {
+                error = "Passport Number should be specified";
+                return false;
+            }
+
+            if (model.InterestRate < 0.0 || model.InterestRate > 1.0)
+            {
+                error = "Interest rate should be in range [0.0, 1.0]";
+                return false;
+            }
+
             // TODO: add person model into DriverModel
             PersonModel pm = new PersonModel
             {

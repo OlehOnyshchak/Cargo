@@ -23,7 +23,11 @@ namespace Cargo.UI
         public AboutPage()
         {
             InitializeComponent();
-            m_textBlock.Text = "Program's description";
+            BitmapImage logo = new BitmapImage();
+            logo.BeginInit();
+            logo.UriSource = new Uri("pack://application:,,,/logo.jpg");
+            logo.EndInit();
+            m_image.Source = logo;
         }
     }
 }

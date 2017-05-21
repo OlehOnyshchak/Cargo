@@ -9,8 +9,6 @@
       Title="AboutPage">
 
     <Grid>
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock x:Name="m_textBlock" TextWrapping="Wrap" Text="TextBlock" Height="39" Width="85"/>
-        </StackPanel>
+        <Image x:Name="m_image" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,5,0,5"/>
     </Grid>
 </Page>
