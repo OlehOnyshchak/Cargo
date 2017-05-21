@@ -57,7 +57,7 @@ namespace Cargo.UI.AddViews
             if (compContr.OnCompanyAdd(model, out error))
             {
                 MessageBox.Show("Operation finished successfully", "Notification",
-                    MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                    MessageBoxButton.OK, MessageBoxImage.Information);
                 this.OnReturn(new ReturnEventArgs<CompanyModel>(this.model));
             }
             else

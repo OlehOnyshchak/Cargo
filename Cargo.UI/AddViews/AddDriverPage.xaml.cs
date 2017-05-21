@@ -37,7 +37,7 @@ namespace Cargo.UI.AddViews
             if (dController.OnAddDriver(model, out error))
             {
                 MessageBox.Show("Operation finished successfully", "Notification",
-                    MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                    MessageBoxButton.OK, MessageBoxImage.Information);
 
                 this.OnReturn(null);
             }

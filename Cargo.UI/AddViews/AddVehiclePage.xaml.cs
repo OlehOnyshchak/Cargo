@@ -38,7 +38,7 @@ namespace Cargo.UI.AddViews
                 && vehContr.OnAddVehicle(model, out error))
             {
                 MessageBox.Show("Operation finished successfully", "Notification",
-                    MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                    MessageBoxButton.OK, MessageBoxImage.Information);
 
                 this.OnReturn(null);
             }
