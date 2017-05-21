@@ -14,9 +14,35 @@ namespace Cargo.Controller
     {
         public bool Validate(BankModel model, out string error)
         {
-            // TODO: implement
+            if (String.IsNullOrWhiteSpace(model.TaxNumber))
+            {
+                error = "Bank's Tax Number should be specified";
+                return false;
+            }
+
+            if (String.IsNullOrWhiteSpace(model.BankName))
+            {
+                error = "Bank's Name should be specified";
+                return false;
+            }
+
+            if (String.IsNullOrWhiteSpace(model.ClientAccount))
+            {
+                error = "Client's Account should be specified";
+                return false;
+            }
+
             error = Controller.Success;
             return true;
+        }
+
+        internal Bank GenerateBankObject(BankModel model)
+        {
+            return new Bank
+            {
+                Name = model.BankName,
+                TaxNumber = model.TaxNumber
+            };
         }
     }
 }

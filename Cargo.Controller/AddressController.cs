@@ -14,9 +14,47 @@ namespace Cargo.Controller
     {
         public bool Validate(AddressModel model, out string error)
         {
-            // TODO: implement
+            if (String.IsNullOrWhiteSpace(model.Country))
+            {
+                error = "Country should be specified";
+                return false;
+            }
+
+            if (String.IsNullOrWhiteSpace(model.City))
+            {
+                error = "City should be specified";
+                return false;
+            }
+
             error = Controller.Success;
             return true;
+        }
+
+        internal Address GenerateAddressObject(AddressModel model)
+        {
+            if (String.IsNullOrWhiteSpace(model.Street))
+            {
+                model.Street = null;
+            }
+
+            if (String.IsNullOrWhiteSpace(model.Number))
+            {
+                model.Number = null;
+            }
+
+            if (String.IsNullOrWhiteSpace(model.PostCode))
+            {
+                model.PostCode = null;
+            }
+
+            return new Address
+            {
+                Country = model.Country,
+                City = model.City,
+                Street = model.Street,
+                Number = model.Number,
+                PostCode = model.PostCode
+            };
         }
     }
 }

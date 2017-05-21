@@ -23,7 +23,8 @@ namespace Cargo.UI.AddViews
     public partial class AddPersonPage : PageFunction<CompanyModel>
     {
         private CompanyModel model;
-        private PersonController controller = new PersonController();
+        private PersonController persContr = new PersonController();
+        private CompanyController compContr = new CompanyController();
 
         public AddPersonPage(CompanyModel Model)
         {
@@ -40,9 +41,9 @@ namespace Cargo.UI.AddViews
         private void SubmitButton_Click(object sender, RoutedEventArgs e)
         {
             string error;
-            if (controller.Validate(model.PersonModel, out error))
+            if (persContr.Validate(model.PersonModel, out error))
             {
-                this.OnReturn(new ReturnEventArgs<CompanyModel>(this.model));
+                this.SaveNewCompany(sender, e);
             }
             else
             {
@@ -50,9 +51,19 @@ namespace Cargo.UI.AddViews
             }
         }
 
-        private void NewCompanyAdded(object sender, ReturnEventArgs<CompanyModel> e)
+        private void SaveNewCompany(object sender, RoutedEventArgs e)
         {
-            this.OnReturn(new ReturnEventArgs<CompanyModel>(this.model));
+            string error;
+            if (compContr.OnCompanyAdd(model, out error))
+            {
+                MessageBox.Show("Operation finished successfully", "Notification",
+                    MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                this.OnReturn(new ReturnEventArgs<CompanyModel>(this.model));
+            }
+            else
+            {
+                MessageBox.Show(error, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }

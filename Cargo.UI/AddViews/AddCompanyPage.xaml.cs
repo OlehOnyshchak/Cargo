@@ -69,6 +69,7 @@ namespace Cargo.UI.AddViews
 
         private void NewCompanyAdded(object sender, ReturnEventArgs<CompanyModel> e)
         {
+            CompanyModel m = e.Result;
             this.OnReturn(null);
         }
 

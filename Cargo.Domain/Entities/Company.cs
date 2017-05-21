@@ -37,6 +37,7 @@ namespace Cargo.Domain.Entities
         [StringLength(30)]
         public string BankNumber { get; set; }
 
+  //      [Column("LogicalType")]
         public CompanyType CompanyType { get; set; }
 
         [StringLength(55)]

@@ -14,14 +14,14 @@ namespace Cargo.Controller
     public class DriverController
     {
         private IDriverRepository driverRep = new DriverRepository();
+        private PersonController pContr = new PersonController();
 
         public bool OnAddDriver(DriverModel model, out string error)
         {
             if (!Validate(model, out error))
                 return false;
 
-            Driver driver;
-            this.GenerateDriverObject(model, out driver);
+            Driver driver = this.GenerateDriverObject(model);
 
             bool success = driverRep.Add(driver);
             error = success ? Controller.Success : Controller.InternalErrorMessage;
@@ -31,9 +31,15 @@ namespace Cargo.Controller
 
         private bool Validate(DriverModel model, out string error)
         {
-            // TODO: implement
-            error = Controller.Success;
-            return true;
+            // TODO: add person model into DriverModel
+            PersonModel pm = new PersonModel
+            {
+                GivenName = model.GivenName,
+                MiddleName = model.MiddleName,
+                FamilyName = model.FamilyName
+            };
+
+            return pContr.Validate(pm, out error);
         }
 
         private bool GenerateDriverModel(Driver driver, out DriverModel model)
@@ -56,16 +62,18 @@ namespace Cargo.Controller
             return true;
         }
 
-        private void GenerateDriverObject(DriverModel model, out Driver driver)
+        internal Driver GenerateDriverObject(DriverModel model)
         {
-            Person person = new Person
+            PersonModel pm = new PersonModel
             {
-                Name = model.GivenName,
+                GivenName = model.GivenName,
                 MiddleName = model.MiddleName,
-                Surname = model.FamilyName
+                FamilyName = model.FamilyName
             };
 
-            driver = new Driver
+            Person person = pContr.GeneratePersonObject(pm);
+
+            return new Driver
             {
                 Person = person,
                 InterestRate = model.InterestRate,
