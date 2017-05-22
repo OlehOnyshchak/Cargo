@@ -59,5 +59,28 @@ namespace Cargo.Controller
             };
         }
 
+        internal VehicleModel GenerateVehicleModel(Vehicle veh)
+        {
+            return new VehicleModel
+            {
+                VehicleBrand = veh.VehicleBrand,
+                VehicleRegistration = veh.VehicleRegistration,
+                TrailerRegistration = veh.TrailerRegistration
+            };
+        }
+
+        public IList<VehicleModel> GetVehicles()
+        {
+            IList<VehicleModel> models = new List<VehicleModel>();
+            IList<Vehicle> vehicles = vehRep.Vehicles;
+
+            foreach (var veh in vehicles)
+            {
+                models.Add(this.GenerateVehicleModel(veh));
+            }
+
+            return models;
+        }
+
     }
 }

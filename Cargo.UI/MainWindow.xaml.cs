@@ -46,9 +46,14 @@ namespace Cargo.UI
             _mainFrame.Navigate(new AddCompanyPage());
         }
 
-        private void ShowDriver_Click(object sender, RoutedEventArgs e)
+        private void ShowDrivers_Click(object sender, RoutedEventArgs e)
         {
             _mainFrame.Navigate(new ShowDriversPage());
+        }
+
+        private void ShowVehicles_Click(object sender, RoutedEventArgs e)
+        {
+            _mainFrame.Navigate(new ShowVehiclesPage());
         }
     }
 }

@@ -29,8 +29,8 @@
                     <MenuItem Header="_Applications" />
                     <MenuItem Header="_Reports" />
                     <Separator />
-                    <MenuItem Header="_Driveres" Click="ShowDriver_Click" />
-                    <MenuItem Header="_Vehicles"  />
+                    <MenuItem Header="_Driveres" Click="ShowDrivers_Click" />
+                    <MenuItem Header="_Vehicles" Click="ShowVehicles_Click" />
                     <MenuItem Header="_Companies"  />
                 </MenuItem>
                 <MenuItem Header="_Generate">

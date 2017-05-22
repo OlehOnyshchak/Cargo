@@ -18,16 +18,15 @@ using Cargo.Controller.Models;
 namespace Cargo.UI.ShowViews
 {
     /// <summary>
-    /// Interaction logic for ShowDriversPage.xaml
+    /// Interaction logic for ShowVehiclesPage.xaml
     /// </summary>
-    public partial class ShowDriversPage : Page
+    public partial class ShowVehiclesPage : PageFunction<String>
     {
-        private DriverController dController = new DriverController();
-
-        public ShowDriversPage()
+        private VehicleController vehContr = new VehicleController();   
+        public ShowVehiclesPage()
         {
             InitializeComponent();
-            m_listView.ItemsSource = dController.GetDrivers();
+            m_listView.ItemsSource = vehContr.GetVehicles();
         }
     }
 }

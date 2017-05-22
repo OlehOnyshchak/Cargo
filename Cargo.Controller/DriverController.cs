@@ -96,7 +96,7 @@ namespace Cargo.Controller
         public IList<DriverModel> GetDrivers()
         {
             IList<DriverModel> models = new List<DriverModel>();
-            IList<Driver> drivers = new List<Driver>(driverRep.Drivers.ToList());
+            IList<Driver> drivers = driverRep.Drivers;
             //IList<Driver> drivers = driverRep.Drivers.ToList();
 
             foreach (var driver in drivers)
