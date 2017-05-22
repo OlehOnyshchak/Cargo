@@ -1,0 +1,48 @@
+﻿<PageFunction
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib" 
+    x:Class="Cargo.UI.ShowViews.ShowCompaniesPage"
+    x:TypeArguments="sys:String"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Cargo.UI.ShowViews"
+    mc:Ignorable="d"
+    d:DesignHeight="300" d:DesignWidth="300"
+    Title="ShowCompaniesPage">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="30px"/>
+        </Grid.RowDefinitions>
+
+        <ListView x:Name="m_listView" HorizontalAlignment="Stretch" Margin="10,0,10,0"
+                  VerticalAlignment="Stretch" Grid.Row="0" Grid.ColumnSpan="5">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Company Name" Width="{Binding ElementName=helperWidth, Path=ActualWidth}"
+                                    DisplayMemberBinding="{Binding GeneralModel.Title}" />
+                    <GridViewColumn Header="Owner's Name" Width="{Binding ElementName=helperWidth, Path=ActualWidth}"
+                                    DisplayMemberBinding="{Binding PersonModel.FullName}" />
+                    <GridViewColumn Header="Phone" Width="{Binding ElementName=helperWidth, Path=ActualWidth}"
+                                    DisplayMemberBinding="{Binding GeneralModel.Phone}" />
+                    <GridViewColumn Header="Email" Width="{Binding ElementName=helperWidth, Path=ActualWidth}"
+                                    DisplayMemberBinding="{Binding GeneralModel.Email}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+
+        <Grid Visibility="Hidden">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <!--This is the hidden helper Field which is used to bind to, using the "Fill" column of the helper grid-->
+            <Grid Grid.Column="1" x:Name="helperWidth"/>
+        </Grid>
+
+    </Grid>
+</PageFunction>

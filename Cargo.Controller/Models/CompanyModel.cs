@@ -9,10 +9,10 @@ namespace Cargo.Controller.Models
 {
     public class CompanyModel
     {
-        public CompanyGeneralModel GeneralModel;
-        public AddressModel LegalAddressModel;
-        public AddressModel ActualAddressModel;
-        public BankModel BankModel;
-        public PersonModel PersonModel;
+        public CompanyGeneralModel GeneralModel { get; set; }
+        public AddressModel LegalAddressModel { get; set; }
+        public AddressModel ActualAddressModel { get; set; }
+        public BankModel BankModel { get; set; }
+        public PersonModel PersonModel { get; set; }
     }
 }

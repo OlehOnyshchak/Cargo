@@ -22,6 +22,7 @@ namespace Cargo.Controller.Models
             {
                 gName = value;
                 OnPropertyChanged("GivenName");
+                OnPropertyChanged("FullName");
             }
         }
                                
@@ -42,7 +43,13 @@ namespace Cargo.Controller.Models
             {
                 fName = value;
                 OnPropertyChanged("FamilyName");
+                OnPropertyChanged("FullName");
             }
+        }
+
+        public string FullName
+        {
+            get { return gName + " " + fName; }
         }
 
         protected void OnPropertyChanged(string name)

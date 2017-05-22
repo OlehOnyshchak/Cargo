@@ -115,6 +115,17 @@ namespace Cargo.Controller
             return true;
         }
 
+        // TODO: move Client's Account from Bank model => move this method to BankController
+        internal BankModel GenerateBankModel(Company comp)
+        {
+            return new BankModel
+            {
+                BankName = comp.Bank.Name,
+                TaxNumber = comp.Bank.TaxNumber,
+                ClientAccount = comp.BankNumber
+            };
+        }
+
         internal bool GenerateCompanyTypeObject(string Type, out CompanyType ct, out string error)
         {
             ct = new CompanyType();
@@ -139,6 +150,56 @@ namespace Cargo.Controller
             }
 
             return succeeded;
+        }
+
+        internal string CompanyTypeToString(CompanyType ct)
+        {
+            switch (ct)
+            {
+                case CompanyType.Client:
+                    return ct_Client;
+                case CompanyType.Supplier:
+                    return ct_Supplier;
+                case CompanyType.Both:
+                    return ct_Both;
+                default:
+                    throw new Exception("CompanyTypeToString");
+            }
+        }
+
+        internal CompanyModel GenerateCompanyModel(Company comp)
+        {
+            CompanyModel cm = new CompanyModel
+            {
+                ActualAddressModel = addrController.GenerateAddressModel(comp.ActualAddress),
+                LegalAddressModel = addrController.GenerateAddressModel(comp.LegalAddress),
+                BankModel = this.GenerateBankModel(comp),
+                PersonModel = persController.GeneratePersonModel(comp.Person)
+            };
+
+            cm.GeneralModel = new CompanyGeneralModel
+            {
+                Title = comp.Title,
+                TaxNumber = comp.TaxNumber,
+                CompanyType = this.CompanyTypeToString(comp.CompanyType),
+                Email = comp.Email,
+                Phone = comp.Phone
+            };
+
+            return cm;
+        }
+
+        public IList<CompanyModel> GetCompanies()
+        {
+            IList<CompanyModel> models = new List<CompanyModel>();
+            IList<Company> companies = companyRep.Companies;
+
+            foreach (var comp in companies)
+            {
+                models.Add(this.GenerateCompanyModel(comp));
+            }
+
+            return models;
         }
     }
 }

@@ -11,6 +11,6 @@ namespace Cargo.Domain.Interfaces
     {
         bool Add(Company driver);
 
-        IList<Company> Drivers { get; }
+        IList<Company> Companies { get; }
     }
 }

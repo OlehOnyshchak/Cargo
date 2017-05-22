@@ -44,5 +44,15 @@ namespace Cargo.Controller
                 Surname = model.FamilyName
             };
         }
+
+        internal PersonModel GeneratePersonModel(Person person)
+        {
+            return new PersonModel
+            {
+                GivenName = person.Name,
+                MiddleName = person.MiddleName,
+                FamilyName = person.Surname
+            };
+        }
     }
 }

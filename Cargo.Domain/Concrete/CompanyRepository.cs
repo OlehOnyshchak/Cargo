@@ -23,7 +23,7 @@ namespace Cargo.Domain.Concrete
             return updated;
         }
 
-        public IList<Company> Drivers
+        public IList<Company> Companies
         {
             get
             {

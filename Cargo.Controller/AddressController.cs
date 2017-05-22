@@ -56,5 +56,17 @@ namespace Cargo.Controller
                 PostCode = model.PostCode
             };
         }
+
+        internal AddressModel GenerateAddressModel(Address addr)
+        {
+            return new AddressModel
+            {
+                Country = addr.Country,
+                City = addr.City,
+                Street = addr.Street,
+                Number = addr.Number,
+                PostCode = addr.PostCode
+            };
+        }
     }
 }

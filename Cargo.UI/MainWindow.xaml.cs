@@ -55,5 +55,10 @@ namespace Cargo.UI
         {
             _mainFrame.Navigate(new ShowVehiclesPage());
         }
+
+        private void ShowCompanies_Click(object sender, RoutedEventArgs e)
+        {
+            _mainFrame.Navigate(new ShowCompaniesPage());
+        }
     }
 }
