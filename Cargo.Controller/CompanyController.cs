@@ -23,11 +23,7 @@ namespace Cargo.Controller
 
         public bool OnCompanyAdd(CompanyModel model, out string error)
         {
-            Company company;
-            if (!this.GenerateCompanyObject(model, out company, out error))
-            {
-                return false;
-            }
+            Company company = this.GenerateCompanyObject(model);
 
             bool success = companyRep.Add(company);
             error = success ? Controller.Success : Controller.InternalErrorMessage;
@@ -76,14 +72,13 @@ namespace Cargo.Controller
         }
 
         // TODO:  make models const in all "generator" functions
-        internal bool GenerateCompanyObject(CompanyModel model, out Company company, out string error)
+        internal Company GenerateCompanyObject(CompanyModel model)
         {
-            company = null;
-            CompanyType ct;
+            CompanyType ct; string error;
             if (!this.GenerateCompanyTypeObject
                 (model.GeneralModel.CompanyType, out ct, out error))
             {
-                return false;
+                throw new Exception("exc");
             }
 
             if (String.IsNullOrWhiteSpace(model.GeneralModel.Email))
@@ -96,7 +91,7 @@ namespace Cargo.Controller
                 model.GeneralModel.Phone = null;
             }
 
-            company = new Company
+            Company company = new Company
             {
                 Title = model.GeneralModel.Title,
                 TaxNumber = model.GeneralModel.TaxNumber,
@@ -111,8 +106,7 @@ namespace Cargo.Controller
             company.Person = persController.GeneratePersonObject(model.PersonModel);
             company.Bank = bankController.GenerateBankObject(model.BankModel);
 
-            error = Controller.Success;
-            return true;
+            return company;
         }
 
         // TODO: move Client's Account from Bank model => move this method to BankController

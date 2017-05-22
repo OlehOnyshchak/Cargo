@@ -48,19 +48,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddressController.cs" />
+    <Compile Include="ApplicationController.cs" />
     <Compile Include="BankController.cs" />
     <Compile Include="CompanyController.cs" />
     <Compile Include="Controller.cs" />
     <Compile Include="DriverController.cs" />
     <Compile Include="Models\AddressModel.cs" />
+    <Compile Include="Models\ApplicationModel.cs" />
     <Compile Include="Models\BankModel.cs" />
     <Compile Include="Models\CompanyGeneralModel.cs" />
     <Compile Include="Models\CompanyModel.cs" />
     <Compile Include="Models\DriverModels.cs" />
     <Compile Include="Models\PersonModel.cs" />
+    <Compile Include="Models\RouteReportModel.cs" />
     <Compile Include="Models\VehicleModel.cs" />
     <Compile Include="PersonController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RouteReportController.cs" />
     <Compile Include="VehicleController.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -65,6 +65,9 @@
     <Compile Include="AddViews\AddAddressPage.xaml.cs">
       <DependentUpon>AddAddressPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AddViews\AddApplicationPage.xaml.cs">
+      <DependentUpon>AddApplicationPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AddViews\AddBankPage.xaml.cs">
       <DependentUpon>AddBankPage.xaml</DependentUpon>
     </Compile>
@@ -88,6 +91,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AddViews\AddAddressPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddViews\AddApplicationPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
