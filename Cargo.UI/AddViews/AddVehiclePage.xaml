@@ -44,9 +44,9 @@
 
         <Separator Grid.Row="2" Grid.ColumnSpan="2" VerticalAlignment="Bottom"/>
 
-        <Button Content="Cancel" Grid.Column="0" Grid.Row="5" VerticalAlignment="Center" 
+        <Button x:Name="m_buttCancel" Content="Cancel" Grid.Column="0" Grid.Row="5" VerticalAlignment="Center" 
                 Click="CancelButton_Click" Margin="15,0,15,0"/>
-        <Button Content="Add" Grid.Column="1" Grid.Row="5" VerticalAlignment="Center" 
+        <Button x:Name="m_buttAdd" Content="Add" Grid.Column="1" Grid.Row="5" VerticalAlignment="Center" 
                 Click="AddButton_Click" Margin="15,15" MaxWidth="120"/>
     </Grid>
 </PageFunction>

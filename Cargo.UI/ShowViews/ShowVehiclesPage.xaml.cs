@@ -22,11 +22,44 @@ namespace Cargo.UI.ShowViews
     /// </summary>
     public partial class ShowVehiclesPage : PageFunction<String>
     {
-        private VehicleController vehContr = new VehicleController();   
+        private VehicleController vehContr = new VehicleController();
+        private AddApplicationModel appModel = null;
+
         public ShowVehiclesPage()
         {
             InitializeComponent();
             m_listView.ItemsSource = vehContr.GetVehicles();
+            m_buttonSelect.Visibility = Visibility.Hidden;
+        }
+
+        public ShowVehiclesPage(AddApplicationModel appMod)
+        {
+            InitializeComponent();
+            m_listView.ItemsSource = vehContr.GetVehicles();
+            appModel = appMod;
+
+            m_buttonSelect.Visibility = Visibility.Visible;
+            this.Title = "Choose Vehicle - Step 5";
+        }
+
+        private void SelectButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (m_listView.SelectedIndex != -1)
+            {
+                appModel.Vehicle = m_listView.SelectedItem as VehicleModel;
+                this.OnReturn(null);
+            }
+            else
+            {
+                MessageBox.Show("You must select the Vehicle", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            var frame = Application.Current.MainWindow.FindName("_mainFrame") as Frame;
+            frame.GoBack();
         }
     }
 }

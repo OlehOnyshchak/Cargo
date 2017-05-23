@@ -93,6 +93,7 @@ namespace Cargo.Controller
 
             Company company = new Company
             {
+                CompanyId = model.ID,
                 Title = model.GeneralModel.Title,
                 TaxNumber = model.GeneralModel.TaxNumber,
                 CompanyType = ct,
@@ -165,6 +166,7 @@ namespace Cargo.Controller
         {
             CompanyModel cm = new CompanyModel
             {
+                ID = comp.CompanyId,
                 ActualAddressModel = addrController.GenerateAddressModel(comp.ActualAddress),
                 LegalAddressModel = addrController.GenerateAddressModel(comp.LegalAddress),
                 BankModel = this.GenerateBankModel(comp),

@@ -20,7 +20,7 @@ namespace Cargo.UI.AddViews
     /// <summary>
     /// Interaction logic for AddPerson.xaml
     /// </summary>
-    public partial class AddPersonPage : PageFunction<CompanyModel>
+    public partial class AddPersonPage : PageFunction<String>
     {
         private CompanyModel model;
         private PersonController persContr = new PersonController();
@@ -39,7 +39,7 @@ namespace Cargo.UI.AddViews
         }
 
         private void SubmitButton_Click(object sender, RoutedEventArgs e)
-        {
+        { 
             string error;
             if (persContr.Validate(model.PersonModel, out error))
             {
@@ -51,6 +51,7 @@ namespace Cargo.UI.AddViews
             }
         }
 
+        // TODO: move this to the CompanyView
         private void SaveNewCompany(object sender, RoutedEventArgs e)
         {
             string error;
@@ -58,7 +59,7 @@ namespace Cargo.UI.AddViews
             {
                 MessageBox.Show("Operation finished successfully", "Notification",
                     MessageBoxButton.OK, MessageBoxImage.Information);
-                this.OnReturn(new ReturnEventArgs<CompanyModel>(this.model));
+                this.OnReturn(null);
             }
             else
             {

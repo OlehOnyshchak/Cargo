@@ -20,7 +20,7 @@ namespace Cargo.UI.AddViews
     /// <summary>
     /// Interaction logic for AddBankPage.xaml
     /// </summary>
-    public partial class AddBankPage : PageFunction<CompanyModel>
+    public partial class AddBankPage : PageFunction<String>
     {
         // TODO: implement selection from existing banks
         private CompanyModel model;
@@ -51,7 +51,7 @@ namespace Cargo.UI.AddViews
                 else
                 {
                     var nextPage = new AddAddressPage(model, false);
-                    nextPage.Return += new ReturnEventHandler<CompanyModel>(NewCompanyAdded);
+                    nextPage.Return += new ReturnEventHandler<String>(NewCompanyAdded);
 
                     frame.Navigate(nextPage);
                 }
@@ -62,9 +62,9 @@ namespace Cargo.UI.AddViews
             }
         }
 
-        private void NewCompanyAdded(object sender, ReturnEventArgs<CompanyModel> e)
+        private void NewCompanyAdded(object sender, ReturnEventArgs<String> e)
         {
-            this.OnReturn(new ReturnEventArgs<CompanyModel>(this.model));
+            this.OnReturn(null);
         }
     }
 }

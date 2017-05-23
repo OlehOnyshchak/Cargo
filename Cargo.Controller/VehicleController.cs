@@ -53,6 +53,7 @@ namespace Cargo.Controller
         {
             return new Vehicle
             {
+                VehicleId = model.ID,
                 VehicleBrand = model.VehicleBrand,
                 VehicleRegistration = model.VehicleRegistration,
                 TrailerRegistration = model.TrailerRegistration
@@ -63,6 +64,7 @@ namespace Cargo.Controller
         {
             return new VehicleModel
             {
+                ID = veh.VehicleId,
                 VehicleBrand = veh.VehicleBrand,
                 VehicleRegistration = veh.VehicleRegistration,
                 TrailerRegistration = veh.TrailerRegistration

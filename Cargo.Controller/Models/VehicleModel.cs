@@ -15,6 +15,8 @@ namespace Cargo.Controller.Models
 
         public event PropertyChangedEventHandler PropertyChanged;
 
+        internal int ID { get; set; }
+
         public string VehicleRegistration
         {
             get { return vehRegistration; }

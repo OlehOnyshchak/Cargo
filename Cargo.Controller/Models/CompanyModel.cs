@@ -9,6 +9,7 @@ namespace Cargo.Controller.Models
 {
     public class CompanyModel
     {
+        internal int ID { get; set; }
         public CompanyGeneralModel GeneralModel { get; set; }
         public AddressModel LegalAddressModel { get; set; }
         public AddressModel ActualAddressModel { get; set; }

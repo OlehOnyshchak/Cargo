@@ -11,6 +11,41 @@
     d:DesignHeight="300" d:DesignWidth="300"
     Title="AddApplicationPage">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
 
+        <Label Content="Compensation" Grid.Row="0" Grid.Column="0"
+                HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBox HorizontalAlignment="Stretch" Height="23" TextWrapping="Wrap"
+                VerticalAlignment="Center" Grid.Row="0"  Grid.Column="1" Margin="15,0,15,0"
+                     Text="{Binding Path=Compensation, Mode=OneWayToSource}"/>
+
+
+        <Label Content="Application's number" Grid.Row="1" Grid.Column="0"
+                HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBox HorizontalAlignment="Stretch" Height="23" TextWrapping="Wrap"
+                VerticalAlignment="Center" Grid.Row="1" Grid.Column="1" Margin="15,0,15,0"
+                     Text="{Binding Path=DocumentNumber, Mode=OneWayToSource}"/>
+
+        <Label Content="Application Signing Date" Grid.Row="2" Grid.Column="0"
+                HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBox HorizontalAlignment="Stretch" Height="23" TextWrapping="Wrap"
+                VerticalAlignment="Center" Grid.Row="2" Grid.Column="1" Margin="15,0,15,0"
+                     Text="{Binding Path=Date, Mode=OneWayToSource}"/>
+
+        <Separator Grid.Row="2" Grid.ColumnSpan="2" VerticalAlignment="Bottom"/>
+
+        <Button Content="Cancel" Grid.Column="0" Grid.Row="3" VerticalAlignment="Center" 
+                Click="CancelButton_Click" Margin="15,0,15,0"/>
+        <Button Content="Next" Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" 
+                 Margin="15,15" MaxWidth="120" Click="NextButton_Click"/>
     </Grid>
 </PageFunction>

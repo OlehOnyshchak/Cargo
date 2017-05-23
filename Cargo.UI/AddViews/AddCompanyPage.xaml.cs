@@ -56,7 +56,7 @@ namespace Cargo.UI.AddViews
                 else
                 {
                     var nextPage = new AddBankPage(model);
-                    nextPage.Return += new ReturnEventHandler<CompanyModel>(NewCompanyAdded);
+                    nextPage.Return += new ReturnEventHandler<String>(NewCompanyAdded);
 
                     frame.Navigate(nextPage);
                 }
@@ -67,15 +67,15 @@ namespace Cargo.UI.AddViews
             }
         }
 
-        private void NewCompanyAdded(object sender, ReturnEventArgs<CompanyModel> e)
+        private void NewCompanyAdded(object sender, ReturnEventArgs<String> e)
         {
-            CompanyModel m = e.Result;
+            Application.Current.MainWindow.Title = "TSAutomation";
             this.OnReturn(null);
         }
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.MainWindow.Title = "Main Window";
+            Application.Current.MainWindow.Title = "TSAutomation";
             this.OnReturn(null);
         }
     }

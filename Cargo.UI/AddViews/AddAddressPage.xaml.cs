@@ -14,42 +14,125 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Cargo.Controller.Models;
 using Cargo.Controller;
+using Cargo.UI.ShowViews;
 
 namespace Cargo.UI.AddViews
 {
     /// <summary>
     /// Interaction logic for AddAddressPage.xaml
     /// </summary>
-    public partial class AddAddressPage : PageFunction<CompanyModel>
+    public partial class AddAddressPage : PageFunction<String>
     {
-        private CompanyModel model;
+        private CompanyModel compModel;
+        private AddApplicationModel appModel;
         private AddressController controller = new AddressController();
-        private bool isActualAddress;
 
-        public AddAddressPage(CompanyModel _Model, bool _IsActualAddress)
+        protected enum Type { LoadingAddr, UnloadingAddr, ActualAddr, LegalAddr };
+        private Type type;
+
+        protected enum Mode { CompanyWizard, ApplicationWizard };
+        private Mode mode;
+
+        public AddAddressPage(CompanyModel _Model, bool IsActualAddress)
         {
             InitializeComponent();
 
-            this.model = _Model;
-            this.isActualAddress = _IsActualAddress;
+            mode = Mode.CompanyWizard;
+            this.compModel = _Model;
+
+            this.type = IsActualAddress ? Type.ActualAddr : Type.LegalAddr;
             var addrModel = new AddressModel();
 
-            if (isActualAddress)
-                model.ActualAddressModel = addrModel;
+            if (type == Type.ActualAddr)
+                compModel.ActualAddressModel = addrModel;
             else
-                model.LegalAddressModel = addrModel;
+                compModel.LegalAddressModel = addrModel;
             
             this.DataContext = addrModel;
             this.KeepAlive = true;
-            Application.Current.MainWindow.Title = isActualAddress ? 
+            Application.Current.MainWindow.Title = type == Type.ActualAddr ? 
                 "Add Actual Address - Step 4" : "Add Legal Address - Step 3";
+        }
+
+        public AddAddressPage(AddApplicationModel _Model, bool isLoadingAddr)
+        {
+            InitializeComponent();
+
+            mode = Mode.ApplicationWizard;
+            this.appModel = _Model;
+
+            this.type = isLoadingAddr ? Type.LoadingAddr : Type.UnloadingAddr;
+            var addrModel = new AddressModel();
+
+            if (type == Type.LoadingAddr)
+                appModel.LoadingAddress = addrModel;
+            else
+                appModel.UnloadingAddress = addrModel;
+
+            this.DataContext = addrModel;
+            this.KeepAlive = true;
+
+            Application.Current.MainWindow.Title = type == Type.LoadingAddr ?
+                "Add Loading Address - Step 2" : "Add Unloading Address - Step 3";
+        }
+
+        private AddressModel GetCurrentModel()
+        {
+            AddressModel currMod;
+            if (mode == Mode.CompanyWizard)
+            {
+                currMod = type == Type.ActualAddr ?
+                compModel.ActualAddressModel : compModel.LegalAddressModel;
+            }
+            else // mode == Mode.ApplicationWizard
+            {
+                currMod = type == Type.LoadingAddr ?
+                appModel.LoadingAddress : appModel.UnloadingAddress;
+            }
+
+            return currMod;
+        }
+
+        private void NextCompanyWizardStep(Frame frame)
+        {
+            var eventHandler = new ReturnEventHandler<String>(ReturnHandle);
+
+            PageFunction<String> INextPage;
+            if (type == Type.ActualAddr)
+            {
+                INextPage = new AddPersonPage(compModel);
+            }
+            else
+            {
+                INextPage = new AddAddressPage(compModel, true);
+            }
+
+            INextPage.Return += eventHandler;
+            frame.Navigate(INextPage);
+        }
+
+        private void NextApplicationWizardStep(Frame frame)
+        {
+            var eventHandler = new ReturnEventHandler<String>(ReturnHandle);
+            PageFunction<String> INextPage;
+
+            if (type == Type.LoadingAddr)
+            {
+                INextPage = new AddAddressPage(appModel, false);
+            }
+            else
+            {
+                INextPage = new ShowCompaniesPage(appModel);
+            }
+
+            INextPage.Return += eventHandler;
+            frame.Navigate(INextPage);
         }
 
         private void NextButton_Click(object sender, RoutedEventArgs e)
         {
             string error;
-            AddressModel mod = isActualAddress ? 
-                model.ActualAddressModel : model.LegalAddressModel;
+            AddressModel mod = this.GetCurrentModel();
             if (controller.Validate(mod, out error))
             {
                 var frame = Application.Current.MainWindow.FindName("_mainFrame") as Frame;
@@ -59,18 +142,13 @@ namespace Cargo.UI.AddViews
                 }
                 else
                 {
-                    var eventHandler = new ReturnEventHandler<CompanyModel>(NewCompanyAdded);
-                    if (isActualAddress)
+                    if (mode == Mode.CompanyWizard)
                     {
-                        var nextPage = new AddPersonPage(model);
-                        nextPage.Return += eventHandler;
-                        frame.Navigate(nextPage);
+                        NextCompanyWizardStep(frame);
                     }
                     else
                     {
-                        var nextPage = new AddAddressPage(model, true);
-                        nextPage.Return += eventHandler;
-                        frame.Navigate(nextPage);
+                        NextApplicationWizardStep(frame);
                     }
                 }
             }
@@ -80,9 +158,10 @@ namespace Cargo.UI.AddViews
             }
         }
 
-        private void NewCompanyAdded(object sender, ReturnEventArgs<CompanyModel> e)
+        private void ReturnHandle(object sender, ReturnEventArgs<String> e)
         {
-            this.OnReturn(new ReturnEventArgs<CompanyModel>(this.model));
+            this.Title = CommonProperties.ProgramName;
+            this.OnReturn(null);
         }
     }
 }

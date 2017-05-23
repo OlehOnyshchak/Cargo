@@ -18,7 +18,7 @@
                     <MenuItem Header="_Exit" />
                 </MenuItem>
                 <MenuItem Header="_Add">
-                    <MenuItem Header="_Application" />
+                    <MenuItem Header="_Application" Click="AddApplication_Click" />
                     <MenuItem Header="_RouteReport" />
                     <Separator />
                     <MenuItem Header="_Driver" Click="AddDriver_Click" />

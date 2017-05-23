@@ -4,7 +4,7 @@
     xmlns:sys="clr-namespace:System;assembly=mscorlib" 
     xmlns:Models="clr-namespace:Cargo.Controller.Models;assembly=Cargo.Controller"
     x:Class="Cargo.UI.AddViews.AddPersonPage"
-    x:TypeArguments="Models:CompanyModel"
+    x:TypeArguments="sys:String"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:Cargo.UI.AddViews"

@@ -16,6 +16,12 @@ namespace Cargo.Domain.Concrete
             bool updated = false;
             using (var db = new CargoDbContext())
             {
+                var client = db.Companies.Where(c => c.CompanyId == app.Client.CompanyId).First();
+                app.Client = client;
+
+                var vehicle = db.Vehicles.Where(c => c.VehicleId == app.Vehicle.VehicleId).First();
+                app.Vehicle = vehicle;
+
                 db.Applications.Add(app);
                 updated = Repository.SaveChanges(db);
             }

@@ -60,5 +60,10 @@ namespace Cargo.UI
         {
             _mainFrame.Navigate(new ShowCompaniesPage());
         }
+
+        private void AddApplication_Click(object sender, RoutedEventArgs e)
+        {
+            _mainFrame.Navigate(new AddApplicationPage());
+        }
     }
 }

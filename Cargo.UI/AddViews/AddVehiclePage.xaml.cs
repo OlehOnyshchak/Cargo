@@ -24,17 +24,25 @@ namespace Cargo.UI.AddViews
     {
         private VehicleModel model = new VehicleModel();
         private VehicleController vehContr = new VehicleController();
+        private AddApplicationModel appModel = null;
 
         public AddVehiclePage()
         {
             InitializeComponent();
             this.DataContext = model;
+
+            m_buttAdd.Content = "Add";
+            m_buttAdd.Click += AddButton_Click;
+
+            m_buttCancel.Content = "Cancel";
+            m_buttCancel.Click += CancelButton_Click;
         }
+
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
             string error;
-            if (vehContr.Validate(model, out error) 
+            if (vehContr.Validate(model, out error)
                 && vehContr.OnAddVehicle(model, out error))
             {
                 MessageBox.Show("Operation finished successfully", "Notification",
@@ -48,10 +56,43 @@ namespace Cargo.UI.AddViews
             }
         }
 
-
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
             this.OnReturn(null);
         }
+
+        //public AddVehiclePage(AddApplicationModel appMod)
+        //{
+        //    InitializeComponent();
+        //    this.DataContext = model;
+        //    appModel = appMod;
+
+        //    m_buttAdd.Content = "Submit";
+        //    m_buttAdd.Click += SubmitButton_Click;
+
+        //    m_buttAdd.Content = "Back";
+        //    m_buttCancel.Click += BackButton_Click;
+        //}
+
+        //private void SubmitButton_Click(object sender, RoutedEventArgs e)
+        //{
+        //    string error;
+        //    if (vehContr.Validate(model, out error))
+        //    {
+        //        appModel.Vehicle = model;
+        //        this.OnReturn(null);
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show(error, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+        //    }
+        //}
+
+
+        //private void BackButton_Click(object sender, RoutedEventArgs e)
+        //{
+        //    var frame = Application.Current.MainWindow.FindName("_mainFrame") as Frame;
+        //    frame.GoBack();
+        //}
     }
 }
