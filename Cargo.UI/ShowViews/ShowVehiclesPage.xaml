@@ -48,6 +48,6 @@
         <Button x:Name="m_buttonBack" Content="Back" VerticalAlignment="Center"
                 Height="30" Width="100" Grid.Row="1" Grid.Column="0" Click="BackButton_Click"/>
         <Button x:Name="m_buttonSelect" Content="Select" VerticalAlignment="Center"
-                Height="30" Width="100" Grid.Row="1" Grid.Column="1" Click="SelectButton_Click"/>
+                Height="30" Width="100" Grid.Row="1" Grid.Column="1"/>
     </Grid>
 </PageFunction>

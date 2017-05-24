@@ -68,6 +68,7 @@
     <Compile Include="Concrete\CompanyRepository.cs" />
     <Compile Include="Concrete\DriverRepository.cs" />
     <Compile Include="Concrete\Repository.cs" />
+    <Compile Include="Concrete\RouteReportRepository.cs" />
     <Compile Include="Concrete\VehicleRepository.cs" />
     <Compile Include="Entities\Address.cs" />
     <Compile Include="Entities\Application.cs" />
@@ -91,6 +92,7 @@
     <Compile Include="Interfaces\IApplicationRepository.cs" />
     <Compile Include="Interfaces\ICompanyRepository.cs" />
     <Compile Include="Interfaces\IDriverRepository.cs" />
+    <Compile Include="Interfaces\IRouteReportRepository.cs" />
     <Compile Include="Interfaces\IVehicleRepository.cs" />
     <Compile Include="Migrations\201705201806037_InitialCreate.cs" />
     <Compile Include="Migrations\201705201806037_InitialCreate.Designer.cs">

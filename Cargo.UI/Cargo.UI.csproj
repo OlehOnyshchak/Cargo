@@ -65,6 +65,9 @@
     <Compile Include="AddViews\AddAddressPage.xaml.cs">
       <DependentUpon>AddAddressPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AddViews\AddApplicationDatesPage.xaml.cs">
+      <DependentUpon>AddApplicationDatesPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AddViews\AddApplicationPage.xaml.cs">
       <DependentUpon>AddApplicationPage.xaml</DependentUpon>
     </Compile>
@@ -73,6 +76,9 @@
     </Compile>
     <Compile Include="AddViews\AddPersonPage.xaml.cs">
       <DependentUpon>AddPersonPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddViews\AddRouteReportPage.xaml.cs">
+      <DependentUpon>AddRouteReportPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="AddViews\AddVehiclePage.xaml.cs">
       <DependentUpon>AddVehiclePage.xaml</DependentUpon>
@@ -84,8 +90,8 @@
     <Compile Include="ShowViews\ShowCompaniesPage.xaml.cs">
       <DependentUpon>ShowCompaniesPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ShowViews\ShowDriversPage.xaml.cs">
-      <DependentUpon>ShowDriversPage.xaml</DependentUpon>
+    <Compile Include="ShowViews\ShowDriversPage_New.xaml.cs">
+      <DependentUpon>ShowDriversPage_New.xaml</DependentUpon>
     </Compile>
     <Compile Include="ShowViews\ShowVehiclesPage.xaml.cs">
       <DependentUpon>ShowVehiclesPage.xaml</DependentUpon>
@@ -95,6 +101,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AddViews\AddAddressPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddViews\AddApplicationDatesPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -115,6 +125,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AddViews\AddPersonPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddViews\AddRouteReportPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -151,7 +165,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ShowViews\ShowDriversPage.xaml">
+    <Page Include="ShowViews\ShowDriversPage_New.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

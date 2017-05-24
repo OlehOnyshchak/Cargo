@@ -12,36 +12,38 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Cargo.Controller;
 using Cargo.Controller.Models;
+using Cargo.Controller;
+using Cargo.UI.ShowViews;
 
 namespace Cargo.UI.AddViews
 {
     /// <summary>
-    /// Interaction logic for AddBankPage.xaml
+    /// Interaction logic for AddRouteReportPage.xaml
     /// </summary>
-    public partial class AddBankPage : PageFunction<String>
+    public partial class AddRouteReportPage : PageFunction<String>
     {
-        // TODO: implement selection from existing banks
-        private CompanyModel model;
-        private BankController controller = new BankController();
+        private RouteReportController controller = new RouteReportController();
+        private RouteReportModel model = new RouteReportModel();
 
-        public AddBankPage(CompanyModel Model)
+        public AddRouteReportPage()
         {
             InitializeComponent();
-
-            model = Model;
-            model.BankModel = new BankModel();
-            this.DataContext = model.BankModel;
-
+            this.DataContext = model;
             this.KeepAlive = true;
-            Application.Current.MainWindow.Title = "Add Bank Information - Step 2";
+            this.Title = "Add RouteReport - Step 1";
+        }
+
+        private void CancelButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Title = CommonProperties.ProgramName;
+            this.OnReturn(null);
         }
 
         private void NextButton_Click(object sender, RoutedEventArgs e)
         {
             string error;
-            if (controller.Validate(model.BankModel, out error))
+            if (controller.Validate(model, out error))
             {
                 var frame = Application.Current.MainWindow.FindName("_mainFrame") as Frame;
                 if (frame.CanGoForward)
@@ -50,8 +52,8 @@ namespace Cargo.UI.AddViews
                 }
                 else
                 {
-                    var nextPage = new AddAddressPage(model, false);
-                    nextPage.Return += new ReturnEventHandler<String>(ReturnHandle);
+                    var nextPage = new ShowVehiclesPage(model);
+                    nextPage.Return += ReturnHandle;
 
                     frame.Navigate(nextPage);
                 }
@@ -64,6 +66,18 @@ namespace Cargo.UI.AddViews
 
         private void ReturnHandle(object sender, ReturnEventArgs<String> e)
         {
+            string error;
+            if (controller.OnRouteReport_Add(model, out error))
+            {
+                MessageBox.Show("Operation finished successfully", "Notification",
+                    MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else
+            {
+                MessageBox.Show(error, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+            this.Title = CommonProperties.ProgramName;
             this.OnReturn(null);
         }
     }

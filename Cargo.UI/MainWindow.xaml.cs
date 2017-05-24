@@ -48,7 +48,7 @@ namespace Cargo.UI
 
         private void ShowDrivers_Click(object sender, RoutedEventArgs e)
         {
-            _mainFrame.Navigate(new ShowDriversPage());
+            _mainFrame.Navigate(new ShowDriversPage_New());
         }
 
         private void ShowVehicles_Click(object sender, RoutedEventArgs e)
@@ -69,6 +69,11 @@ namespace Cargo.UI
         private void ShowApplications_Click(object sender, RoutedEventArgs e)
         {
             _mainFrame.Navigate(new ShowApplicationsPage());
+        }
+
+        private void AddRouteReport_Click(object sender, RoutedEventArgs e)
+        {
+            _mainFrame.Navigate(new AddRouteReportPage());
         }
     }
 }

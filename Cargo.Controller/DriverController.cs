@@ -64,6 +64,7 @@ namespace Cargo.Controller
 
             model = new DriverModel
             {
+                ID = driver.fDriverId,
                 GivenName = driver.Person.Name,
                 MiddleName = driver.Person.MiddleName,
                 FamilyName = driver.Person.Surname,
@@ -87,6 +88,7 @@ namespace Cargo.Controller
 
             return new Driver
             {
+                fDriverId = model.ID,
                 Person = person,
                 InterestRate = model.InterestRate,
                 PassportNum = model.PassportNumber

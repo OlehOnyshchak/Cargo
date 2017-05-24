@@ -18,6 +18,8 @@ namespace Cargo.Controller.Models
 
         public event PropertyChangedEventHandler PropertyChanged;
 
+        internal int ID { get; set; }
+
         public DriverModel()
         {
             InterestRate = -1.0;

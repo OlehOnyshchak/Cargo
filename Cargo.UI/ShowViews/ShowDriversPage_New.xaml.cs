@@ -14,37 +14,35 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Cargo.Controller;
 using Cargo.Controller.Models;
-using Cargo.UI.AddViews;
 
 namespace Cargo.UI.ShowViews
 {
     /// <summary>
-    /// Interaction logic for ShowApplicationsPage.xaml
+    /// Interaction logic for ShowDriversPage_New.xaml
     /// </summary>
-    public partial class ShowApplicationsPage : PageFunction<String>
+    public partial class ShowDriversPage_New : PageFunction<String>
     {
-        private ApplicationController appContr = new ApplicationController();
+        private DriverController dController = new DriverController();
         private RouteReportModel reportModel = null;
 
-        public ShowApplicationsPage()
+        public ShowDriversPage_New()
         {
             InitializeComponent();
+            m_listView.ItemsSource = dController.GetDrivers();
 
-            m_listView.ItemsSource = appContr.GetApplicationsView();
-
+            this.KeepAlive = true;
             m_buttonSelect.Visibility = Visibility.Hidden;
         }
 
-        public ShowApplicationsPage(RouteReportModel repModel)
+        public ShowDriversPage_New(RouteReportModel model)
         {
             InitializeComponent();
+            m_listView.ItemsSource = dController.GetDrivers();
 
-            m_listView.ItemsSource = appContr.GetApplicationsView();
-            reportModel = repModel;
-
+            this.KeepAlive = true;
+            reportModel = model;
             m_buttonSelect.Visibility = Visibility.Visible;
         }
-
 
         private void SelectButton_Click(object sender, RoutedEventArgs e)
         {
@@ -57,8 +55,8 @@ namespace Cargo.UI.ShowViews
                 }
                 else
                 {
-                    reportModel.Application = m_listView.SelectedItem as ShowApplicationModel;
-                    var nextPage = new AddApplicationDatesPage(reportModel);
+                    reportModel.Driver = m_listView.SelectedItem as DriverModel;
+                    var nextPage = new ShowApplicationsPage(reportModel);
                     nextPage.Return += ReturnHandle;
 
                     frame.Navigate(nextPage);

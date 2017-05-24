@@ -14,25 +14,58 @@ namespace Cargo.Controller
     public class RouteReportController
     {
         private ApplicationController appContr = new ApplicationController();
+        private DriverController drivContr = new DriverController();
+        private VehicleController vehContr = new VehicleController();
+
+        private IRouteReportRepository routeRep = new RouteReportRepository();
 
         public bool OnRouteReport_Add(RouteReportModel model, out string error)
         {
-            error = null;
-            return false;
+            RouteReport company = this.GenerateRouteReport_Object(model);
+
+            bool success = routeRep.Add(company);
+            error = success ? Controller.Success : Controller.InternalErrorMessage;
+
+            return success;
         }
 
         public bool Validate(RouteReportModel model, out string error)
         {
-            error = null;
-            return false;
+            error = Controller.Success;
+            return true;
         }
 
         internal RouteReport GenerateRouteReport_Object(RouteReportModel model)
         {
-            return null;
+            RouteReport rr = new RouteReport
+            {
+                RouteReportId = model.ID,
+                RoadCredit = model.RoadCredit,
+                RouteMileage = model.RouteMileage,
+
+                TaxedMileage = 0,
+                FuelLevelBefore = 0,
+                FuelLevelAfter = 0,
+
+                StartDate = (DateTime)model.Application.LoadingDate,
+                BorderCrossingDate = null,
+                EndDate = (DateTime)model.Application.UnloadingDate,
+
+                DriverInterestRate = model.Driver.InterestRate,
+                TotalSpendings = model.TotalSpendings,
+
+                Driver = drivContr.GenerateDriverObject(model.Driver),
+                Vehicle = vehContr.GenerateVehicleObject(model.Vehicle)
+            };
+
+            rr.Applications = new List<Application>();
+            rr.Applications.Add(appContr.GenerateApplication_Object(model.Application));
+
+            rr.Applications.First().RouteReport = rr;
+            return rr;
         }
 
-        internal RouteReportModel GenerateRouteReport_Model(RouteReport app)
+        internal RouteReportModel GenerateRouteReport_Model(RouteReport rr)
         {
             return null;
         }
