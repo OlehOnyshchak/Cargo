@@ -42,5 +42,6 @@ namespace Cargo.Domain.Concrete
                 return vehicles;
             }
         }
+
     }
 }

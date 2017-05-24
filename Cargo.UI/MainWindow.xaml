@@ -26,7 +26,7 @@
                     <MenuItem Header="_Company" Click="AddCompany_Click" />
                 </MenuItem>
                 <MenuItem Header="_Show">
-                    <MenuItem Header="_Applications" />
+                    <MenuItem Header="_Applications" Click="ShowApplications_Click"/>
                     <MenuItem Header="_Reports" />
                     <Separator />
                     <MenuItem Header="_Driveres" Click="ShowDrivers_Click" />

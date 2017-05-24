@@ -29,6 +29,29 @@ namespace Cargo.Domain.Concrete
             return updated;
         }
 
+        public bool Update(Application updatedApp)
+        {
+            bool updated = false;
+            using (var db = new CargoDbContext())
+            {
+                var app = db.Applications.Where
+                    (e => e.ApplicationId == updatedApp.ApplicationId).First();
+ 
+                var report = db.RouteReports.Where
+                    (e => e.RouteReportId == updatedApp.RouteReport.RouteReportId).First();
+
+                db.Applications.Attach(app);
+
+                app.RouteReport = report;
+                app.LoadingDate = updatedApp.LoadingDate;
+                app.UnloadingDate = updatedApp.UnloadingDate;
+
+                updated = Repository.SaveChanges(db);
+            }
+
+            return updated;
+        }
+
         public IList<Application> Applications
         {
             get
@@ -55,5 +78,42 @@ namespace Cargo.Domain.Concrete
                 return apps;
             }
         }
+
+        public IList<ApplicationShortView> ApplicationViews
+        {
+            get
+            {
+                IList<ApplicationShortView> apps;
+                using (var db = new CargoDbContext())
+                {
+                    apps = db.ApplicationShortViews.ToList();
+                    foreach (var app in apps)
+                    {
+                        db.Entry(app).Reference(e => e.RouteReport).Load();
+                    }
+                }
+
+                return apps;
+            }
+        }
+
+        public IList<ApplicationShortView> OpenApplicationViews
+        {
+            get
+            {
+                IList<ApplicationShortView> apps;
+                using (var db = new CargoDbContext())
+                {
+                    apps = db.ApplicationShortViews.Where(e => e.fRouteReport == null).ToList();
+                    foreach (var app in apps)
+                    {
+                        db.Entry(app).Reference(e => e.RouteReport).Load();
+                    }
+                }
+
+                return apps;
+            }
+        }
+
     }
 }

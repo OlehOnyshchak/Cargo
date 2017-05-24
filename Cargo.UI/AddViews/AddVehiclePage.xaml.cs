@@ -24,18 +24,11 @@ namespace Cargo.UI.AddViews
     {
         private VehicleModel model = new VehicleModel();
         private VehicleController vehContr = new VehicleController();
-        private AddApplicationModel appModel = null;
 
         public AddVehiclePage()
         {
             InitializeComponent();
             this.DataContext = model;
-
-            m_buttAdd.Content = "Add";
-            m_buttAdd.Click += AddButton_Click;
-
-            m_buttCancel.Content = "Cancel";
-            m_buttCancel.Click += CancelButton_Click;
         }
 
 

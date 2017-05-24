@@ -10,7 +10,10 @@ namespace Cargo.Domain.Interfaces
     public interface IApplicationRepository
     {
         bool Add(Application app);
+        bool Update(Application app);
 
         IList<Application> Applications { get; }
+        IList<ApplicationShortView> ApplicationViews { get; }
+        IList<ApplicationShortView> OpenApplicationViews { get; }
     }
 }

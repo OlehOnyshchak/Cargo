@@ -13,6 +13,8 @@ namespace Cargo.Controller
 {
     public class RouteReportController
     {
+        private ApplicationController appContr = new ApplicationController();
+
         public bool OnRouteReport_Add(RouteReportModel model, out string error)
         {
             error = null;
@@ -25,12 +27,12 @@ namespace Cargo.Controller
             return false;
         }
 
-        internal RouteReport GenerateApplication_Object(RouteReportModel model)
+        internal RouteReport GenerateRouteReport_Object(RouteReportModel model)
         {
             return null;
         }
 
-        internal RouteReportModel GenerateApplication_Model(RouteReport app)
+        internal RouteReportModel GenerateRouteReport_Model(RouteReport app)
         {
             return null;
         }

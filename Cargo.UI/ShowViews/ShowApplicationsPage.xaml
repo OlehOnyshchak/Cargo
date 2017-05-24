@@ -1,0 +1,58 @@
+﻿<PageFunction
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib" 
+    x:Class="Cargo.UI.ShowViews.ShowApplicationsPage"
+    x:TypeArguments="sys:String"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Cargo.UI.ShowViews"
+    mc:Ignorable="d"
+    d:DesignHeight="300" d:DesignWidth="300"
+    Title="ShowApplicationsPage">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50px"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <ListView x:Name="m_listView" HorizontalAlignment="Stretch" Margin="10,0,10,0"
+                  VerticalAlignment="Stretch" Grid.Row="0" Grid.ColumnSpan="5">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Vehicle Registration" Width="{Binding ElementName=helperWidth, Path=ActualWidth}"
+                                    DisplayMemberBinding="{Binding VehicleRegistration}" />
+                    <GridViewColumn Header="From City" Width="{Binding ElementName=helperWidth, Path=ActualWidth}"
+                                    DisplayMemberBinding="{Binding FromCity}" />
+                    <GridViewColumn Header="To City" Width="{Binding ElementName=helperWidth, Path=ActualWidth}"
+                                    DisplayMemberBinding="{Binding ToCity}" />
+                    <GridViewColumn Header="Application's Date" Width="{Binding ElementName=helperWidth, Path=ActualWidth}"
+                                    DisplayMemberBinding="{Binding StartDate, Mode=TwoWay}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+
+
+        <Grid Visibility="Hidden" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <!--This is the hidden helper Field which is used to bind to, using the "Fill" column of the helper grid-->
+            <Grid Grid.Column="1" x:Name="helperWidth"/>
+        </Grid>
+
+        <Button x:Name="m_buttonBack" Content="Back" VerticalAlignment="Center"
+                Height="30" Width="100" Grid.Row="1" Grid.Column="0" Click="BackButton_Click"/>
+        <Button x:Name="m_buttonSelect" Content="Select" VerticalAlignment="Center"
+                Height="30" Width="100" Grid.Row="1" Grid.Column="1" Click="SelectButton_Click"/>
+
+    </Grid>
+</PageFunction>

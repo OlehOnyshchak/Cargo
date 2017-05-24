@@ -8,5 +8,6 @@ namespace Cargo.Controller.Models
 {
     public class RouteReportModel
     {
+
     }
 }

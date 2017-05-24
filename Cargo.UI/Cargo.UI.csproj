@@ -78,6 +78,9 @@
       <DependentUpon>AddVehiclePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="CommonProperties.cs" />
+    <Compile Include="ShowViews\ShowApplicationsPage.xaml.cs">
+      <DependentUpon>ShowApplicationsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ShowViews\ShowCompaniesPage.xaml.cs">
       <DependentUpon>ShowCompaniesPage.xaml</DependentUpon>
     </Compile>
@@ -140,6 +143,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="ShowViews\ShowApplicationsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ShowViews\ShowCompaniesPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

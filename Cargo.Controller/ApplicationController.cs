@@ -18,7 +18,7 @@ namespace Cargo.Controller
         private PersonController persContr = new PersonController();
         private VehicleController vehContr = new VehicleController();
         private CompanyController compContr = new CompanyController();
-
+  
         public bool OnApplicationAdd(AddApplicationModel model, out string error)
         {
             Application app = GenerateApplication_Object(model);
@@ -29,8 +29,20 @@ namespace Cargo.Controller
             return success;
         }
 
+        //public bool OnApplicationUpdate(ShowApplicationModel model, out string error)
+        //{
+        //    Application app = GenerateApplication_Object(model);
+
+        //    bool success = appRep.Add(app);
+        //    error = success ? Controller.Success : Controller.InternalErrorMessage;
+
+        //    return success;
+        //}
+
         public bool Validate(AddApplicationModel model, out string error)
         {
+            GetApplicationsView();
+
             if (model.Compensation < 0.0)
             {
                 error = "Compensation should be specified and it should be positive";
@@ -77,7 +89,20 @@ namespace Cargo.Controller
             };
         }
 
-        internal AddApplicationModel GenerateApplication_Model(Application app)
+        internal Application GenerateApplication_Object(ShowApplicationModel model)
+        {
+            return new Application
+            {
+                ApplicationId = model.ID,
+                LoadingDate = model.LoadingDate,
+                UnloadingDate = model.UnloadingDate
+                // TODO: somehow move parsing of RouteReport here, i.e uncomment this
+//                RouteReport = routeContr.GenerateRouteReport_Object(model.RouteReport)
+            };
+        }
+
+
+        internal AddApplicationModel GenerateAddApplication_Model(Application app)
         {
             return new AddApplicationModel
             {
@@ -95,6 +120,18 @@ namespace Cargo.Controller
             };
         }
 
+        internal ShowApplicationModel GenerateShowApplication_Model(ApplicationShortView app)
+        {
+            return new ShowApplicationModel
+            {
+                ID = app.ApplicationId,
+                FromCity = app.FromCity,
+                ToCity = app.ToCity,
+                StartDate = app.StartDate,
+                VehicleRegistration = app.VehicleRegistration
+            };
+        }
+
         public IList<AddApplicationModel> GetApplications()
         {
             IList<AddApplicationModel> models = new List<AddApplicationModel>();
@@ -102,7 +139,20 @@ namespace Cargo.Controller
 
             foreach (var app in apps)
             {
-                models.Add(this.GenerateApplication_Model(app));
+                models.Add(this.GenerateAddApplication_Model(app));
+            }
+
+            return models;
+        }
+
+        public IList<ShowApplicationModel> GetApplicationsView()
+        {
+            IList<ShowApplicationModel> models = new List<ShowApplicationModel>();
+            IList<ApplicationShortView> apps = appRep.OpenApplicationViews;
+
+            foreach (var app in apps)
+            {
+                models.Add(this.GenerateShowApplication_Model(app));
             }
 
             return models;
