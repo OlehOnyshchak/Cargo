@@ -27,15 +27,15 @@
                 </MenuItem>
                 <MenuItem Header="_Show">
                     <MenuItem Header="_Applications" Click="ShowApplications_Click"/>
-                    <MenuItem Header="_Reports" />
+                    <MenuItem Header="_Reports" Click="ShowReports_Click"/>
                     <Separator />
                     <MenuItem Header="_Driveres" Click="ShowDrivers_Click" />
                     <MenuItem Header="_Vehicles" Click="ShowVehicles_Click" />
                     <MenuItem Header="_Companies" Click="ShowCompanies_Click" />
                 </MenuItem>
                 <MenuItem Header="_Generate">
-                    <MenuItem Header="_Document_1" />
-                    <MenuItem Header="_Document_2" />
+                    <MenuItem Header="_Receipt" Click="GenerateReceipt_Click" />
+                    <MenuItem Header="_Driver's Sallary" Click="GenerateSallary_Click" />
                 </MenuItem>
             </Menu>
 

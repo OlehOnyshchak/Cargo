@@ -67,5 +67,20 @@ namespace Cargo.Domain.Concrete
                 return reports;
             }
         }
+
+        public IList<RouteReportShortView> RouteReportViews
+        {
+            get
+            {
+                IList<RouteReportShortView> reports;
+                using (var db = new CargoDbContext())
+                {
+                    reports = db.RouteReportShortViews.ToList();
+                }
+
+                return reports;
+            }
+
+        }
     }
 }

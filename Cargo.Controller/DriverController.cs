@@ -24,7 +24,7 @@ namespace Cargo.Controller
             Driver driver = this.GenerateDriverObject(model);
 
             bool success = driverRep.Add(driver);
-            error = success ? Controller.Success : Controller.InternalErrorMessage;
+            error = success ? GeneralController.Success : GeneralController.InternalErrorMessage;
 
             return success;
         }

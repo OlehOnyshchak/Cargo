@@ -26,7 +26,7 @@ namespace Cargo.Controller
                 return false;
             }
 
-            error = Controller.Success;
+            error = GeneralController.Success;
             return true;
         }
 

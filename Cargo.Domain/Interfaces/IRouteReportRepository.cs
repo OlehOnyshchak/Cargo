@@ -12,5 +12,6 @@ namespace Cargo.Domain.Interfaces
         bool Add(RouteReport report);
 
         IList<RouteReport> RouteReports { get; }
+        IList<RouteReportShortView> RouteReportViews { get; }
     }
 }

@@ -61,6 +61,7 @@
     <Compile Include="Models\DriverModels.cs" />
     <Compile Include="Models\PersonModel.cs" />
     <Compile Include="Models\RouteReportModel.cs" />
+    <Compile Include="Models\ShowReportModel.cs" />
     <Compile Include="Models\ShowApplicationModel.cs" />
     <Compile Include="Models\VehicleModel.cs" />
     <Compile Include="PersonController.cs" />

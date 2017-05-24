@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Cargo.Controller;
 using Cargo.Controller.Models;
+using Cargo.UI.AddViews;
 
 namespace Cargo.UI.ShowViews
 {
@@ -32,6 +33,7 @@ namespace Cargo.UI.ShowViews
 
             this.KeepAlive = true;
             m_buttonSelect.Visibility = Visibility.Hidden;
+            m_buttonSelect.Click += SelectButton_Click;
         }
 
         public ShowDriversPage_New(RouteReportModel model)
@@ -42,6 +44,17 @@ namespace Cargo.UI.ShowViews
             this.KeepAlive = true;
             reportModel = model;
             m_buttonSelect.Visibility = Visibility.Visible;
+            m_buttonSelect.Click += SelectButton_Click;
+        }
+
+        public ShowDriversPage_New(bool generateSallary)
+        {
+            InitializeComponent();
+            m_listView.ItemsSource = dController.GetDrivers();
+
+            this.KeepAlive = true;
+            m_buttonSelect.Visibility = Visibility.Visible;
+            m_buttonSelect.Click += GenerateSallaryButton_Click;
         }
 
         private void SelectButton_Click(object sender, RoutedEventArgs e)
@@ -68,7 +81,19 @@ namespace Cargo.UI.ShowViews
             }
         }
 
+        private void GenerateSallaryButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (m_listView.SelectedIndex != -1)
+            {
+                DriverModel model = m_listView.SelectedItem as DriverModel;
+                
+                var nextPage = new SelectDatesForQueryPage(model);
+                nextPage.Return += ReturnHandle;
 
+                var frame = Application.Current.MainWindow.FindName("_mainFrame") as Frame;
+                frame.Navigate(nextPage);
+            }
+        }
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
             var frame = Application.Current.MainWindow.FindName("_mainFrame") as Frame;

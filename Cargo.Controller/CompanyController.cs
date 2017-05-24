@@ -26,7 +26,7 @@ namespace Cargo.Controller
             Company company = this.GenerateCompanyObject(model);
 
             bool success = companyRep.Add(company);
-            error = success ? Controller.Success : Controller.InternalErrorMessage;
+            error = success ? GeneralController.Success : GeneralController.InternalErrorMessage;
 
             return success;
         }
@@ -67,7 +67,7 @@ namespace Cargo.Controller
                 return false;
             }
 
-            error = Controller.Success;
+            error = GeneralController.Success;
             return true;
         }
 
@@ -125,7 +125,7 @@ namespace Cargo.Controller
         {
             ct = new CompanyType();
             bool succeeded = true;
-            error = Controller.Success;
+            error = GeneralController.Success;
 
             switch (Type)
             {

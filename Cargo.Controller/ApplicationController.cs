@@ -24,7 +24,7 @@ namespace Cargo.Controller
             Application app = GenerateApplication_Object(model);
 
             bool success = appRep.Add(app);
-            error = success ? Controller.Success : Controller.InternalErrorMessage;
+            error = success ? GeneralController.Success : GeneralController.InternalErrorMessage;
 
             return success;
         }
@@ -61,7 +61,7 @@ namespace Cargo.Controller
                 return false;
             }
 
-            error = Controller.Success;
+            error = GeneralController.Success;
             return true;
         }
 

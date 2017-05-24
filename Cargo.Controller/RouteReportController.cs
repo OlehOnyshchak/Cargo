@@ -24,14 +24,14 @@ namespace Cargo.Controller
             RouteReport company = this.GenerateRouteReport_Object(model);
 
             bool success = routeRep.Add(company);
-            error = success ? Controller.Success : Controller.InternalErrorMessage;
+            error = success ? GeneralController.Success : GeneralController.InternalErrorMessage;
 
             return success;
         }
 
         public bool Validate(RouteReportModel model, out string error)
         {
-            error = Controller.Success;
+            error = GeneralController.Success;
             return true;
         }
 
@@ -68,6 +68,31 @@ namespace Cargo.Controller
         internal RouteReportModel GenerateRouteReport_Model(RouteReport rr)
         {
             return null;
+        }
+
+        internal ShowReportModel GenerateRouteReportView_Model(RouteReportShortView rr)
+        {
+            return new ShowReportModel
+            {
+                ID = rr.RouteReportId,
+                VehicleRegistration = rr.VehicleRegistration,
+                FromCity = rr.FromCity,
+                ToCity = rr.ToCity,
+                StartDate = rr.StartDate
+            };
+        }
+
+        public IList<ShowReportModel> GetApplicationsView()
+        {
+            IList<ShowReportModel> models = new List<ShowReportModel>();
+            IList<RouteReportShortView> apps = routeRep.RouteReportViews;
+
+            foreach (var app in apps)
+            {
+                models.Add(this.GenerateRouteReportView_Model(app));
+            }
+
+            return models;
         }
     }
 }

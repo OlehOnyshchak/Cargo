@@ -83,6 +83,9 @@
     <Compile Include="AddViews\AddVehiclePage.xaml.cs">
       <DependentUpon>AddVehiclePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AddViews\SelectDatesForQueryPage.xaml.cs">
+      <DependentUpon>SelectDatesForQueryPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CommonProperties.cs" />
     <Compile Include="ShowViews\ShowApplicationsPage.xaml.cs">
       <DependentUpon>ShowApplicationsPage.xaml</DependentUpon>
@@ -92,6 +95,9 @@
     </Compile>
     <Compile Include="ShowViews\ShowDriversPage_New.xaml.cs">
       <DependentUpon>ShowDriversPage_New.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ShowViews\ShowRouteReporsPage.xaml.cs">
+      <DependentUpon>ShowRouteReporsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ShowViews\ShowVehiclesPage.xaml.cs">
       <DependentUpon>ShowVehiclesPage.xaml</DependentUpon>
@@ -136,6 +142,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="AddViews\SelectDatesForQueryPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -166,6 +176,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ShowViews\ShowDriversPage_New.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ShowViews\ShowRouteReporsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

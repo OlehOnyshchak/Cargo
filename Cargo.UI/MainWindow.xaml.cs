@@ -75,5 +75,20 @@ namespace Cargo.UI
         {
             _mainFrame.Navigate(new AddRouteReportPage());
         }
+
+        private void ShowReports_Click(object sender, RoutedEventArgs e)
+        {
+            _mainFrame.Navigate(new ShowRouteReporsPage());
+        }
+
+        private void GenerateReceipt_Click(object sender, RoutedEventArgs e)
+        {
+            _mainFrame.Navigate(new ShowRouteReporsPage(true));
+        }
+
+        private void GenerateSallary_Click(object sender, RoutedEventArgs e)
+        {
+            _mainFrame.Navigate(new ShowDriversPage_New(true));
+        }
     }
 }
