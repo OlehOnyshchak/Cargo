@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using Cargo.Controller;
 using Cargo.Controller.Models;
 using Cargo.UI.AddViews;
+using Cargo.Controller.DocumentGenerator;
 
 namespace Cargo.UI.ShowViews
 {
@@ -24,11 +25,15 @@ namespace Cargo.UI.ShowViews
     public partial class ShowRouteReporsPage : PageFunction<String>
     {
         private RouteReportController repContr = new RouteReportController();
+        private OperationType type;
 
-        public ShowRouteReporsPage(bool generate = false)
+        public enum OperationType { Show, GenerateReceipt, GenerateAcceptCert }
+
+        public ShowRouteReporsPage(OperationType type)
         {
             InitializeComponent();
-            m_buttonSelect.Visibility = generate ? Visibility.Visible : Visibility.Hidden;
+            m_buttonSelect.Visibility = 
+                type != OperationType.Show ? Visibility.Visible : Visibility.Hidden;
 
             m_listView.ItemsSource = repContr.GetApplicationsView();
         }
@@ -43,12 +48,21 @@ namespace Cargo.UI.ShowViews
 
         private void SelectButton_Click(object sender, RoutedEventArgs e)
         {
+
             if (m_listView.SelectedIndex != -1)
             {
                 ShowReportModel model = m_listView.SelectedItem as ShowReportModel;
-                GeneralController.GenerateReceip(model);
-                MessageBox.Show("Operation finished successfully", "Notification",
-       MessageBoxButton.OK, MessageBoxImage.Information);
+                if (type == OperationType.GenerateReceipt)
+                {
+                    GeneralController.GenerateReceip(model);
+                    MessageBox.Show("Operation finished successfully", "Notification",
+                        MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                else
+                {
+                    AcceptanceCertificateManager manager = new AcceptanceCertificateManager();
+                    manager.generate(model);
+                }
             }
             else
             {

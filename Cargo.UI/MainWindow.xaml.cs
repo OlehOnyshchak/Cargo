@@ -78,17 +78,22 @@ namespace Cargo.UI
 
         private void ShowReports_Click(object sender, RoutedEventArgs e)
         {
-            _mainFrame.Navigate(new ShowRouteReporsPage());
+            _mainFrame.Navigate(new ShowRouteReporsPage(ShowRouteReporsPage.OperationType.Show));
         }
 
         private void GenerateReceipt_Click(object sender, RoutedEventArgs e)
         {
-            _mainFrame.Navigate(new ShowRouteReporsPage(true));
+            _mainFrame.Navigate(new ShowRouteReporsPage(ShowRouteReporsPage.OperationType.GenerateReceipt));
         }
 
         private void GenerateSallary_Click(object sender, RoutedEventArgs e)
         {
             _mainFrame.Navigate(new ShowDriversPage_New(true));
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            _mainFrame.Navigate(new ShowRouteReporsPage(ShowRouteReporsPage.OperationType.GenerateAcceptCert));
         }
     }
 }

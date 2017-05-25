@@ -20,6 +20,7 @@ namespace Cargo.Controller
         private const string ct_Client = "Client";
         private const string ct_Supplier = "Suplier";
         private const string ct_Both = "Both";
+        private const string ct_Mine = "Mine";
 
         public bool OnCompanyAdd(CompanyModel model, out string error)
         {
@@ -158,7 +159,8 @@ namespace Cargo.Controller
                 case CompanyType.Both:
                     return ct_Both;
                 default:
-                    throw new Exception("CompanyTypeToString");
+                    //      throw new Exception("CompanyTypeToString");
+                    return ct_Mine;
             }
         }
 
