@@ -41,24 +41,20 @@ namespace Cargo.Controller.DocumentGenerator
                 ++DocumentNumber;
 
                 int count = document.Words.Count;
-                for (int i = 1; i <= document.Words.Count; i++)
+                for (int i = 1; i <= document.Words.Count;)
                 {
-                    string text = document.Words[i].Text;
-                    switch (text)
+                    switch (document.Words[i].Text)
                     {
-                        case "#":
-                            document.Words[i].Text = String.Empty;
-                            --i;
-                            text = document.Words[i].Text;
-                            break;
                         case "MyCompanyOwnerOfficialName":
-                            document.Words[i].Text = DocumentManager.GetOfficialName(myCompany.Person);
+                            document.Words[i].Text = DocumentManager
+                                .GetOfficialName(myCompany.Person);
                             break;
                         case "ClientCompanyTitle":
                             document.Words[i].Text = clientCompany.Title;
                             break;
                         case "ClientCompanyOwnerOfficialName":
-                            document.Words[i].Text = DocumentManager.GetOfficialName(clientCompany.Person);
+                            document.Words[i].Text = DocumentManager
+                                .GetOfficialName(clientCompany.Person);
                             break;
                         case "DocumentNumber":
                             document.Words[i].Text = DocumentNumber.ToString();
@@ -83,25 +79,30 @@ namespace Cargo.Controller.DocumentGenerator
                             document.Words[i].Text = report.Vehicle.TrailerRegistration;
                             break;
                         case "LoadingAddress":
-                            document.Words[i].Text = DocumentManager.GetShortAddress(app.LoadingAddress);
+                            document.Words[i].Text = DocumentManager.
+                                GetShortAddress(app.LoadingAddress);
                             break;
                         case "UnloadingAddress":
-                            document.Words[i].Text = DocumentManager.GetShortAddress(app.UnloadingAddress);
+                            document.Words[i].Text = DocumentManager.
+                                GetShortAddress(app.UnloadingAddress);
                             break;
                         case "ApplicationCompensation":
-                            document.Words[i].Text = app.Compensation.ToString();
+                            document.Words[i].Text = app.Compensation.ToString("F2");
                             break;
                         case "CompensationWithouTax":
-                            document.Words[i].Text = (app.Compensation - app.Compensation / 6).ToString();
+                            document.Words[i].Text = (app.Compensation - app.Compensation / 6)
+                                    .ToString("F2");
                             break;
                         case "TaxAmount":
-                            document.Words[i].Text = (app.Compensation / 6).ToString();
+                            document.Words[i].Text = (app.Compensation / 6).ToString("F2");
                             break;
                         case "MyCompanyRealAddress":
-                            document.Words[i].Text = DocumentManager.GetFullAddress(myCompany.ActualAddress);
+                            document.Words[i].Text = DocumentManager.
+                                GetFullAddress(myCompany.ActualAddress);
                             break;
                         case "ClientCompanyRealAddress":
-                            document.Words[i].Text = DocumentManager.GetFullAddress(clientCompany.ActualAddress);
+                            document.Words[i].Text = DocumentManager.
+                                GetFullAddress(clientCompany.ActualAddress);
                             break;
                         case "MyCompanyBankNumber":
                             document.Words[i].Text = myCompany.BankNumber;
@@ -129,9 +130,13 @@ namespace Cargo.Controller.DocumentGenerator
                             break;
                     }
 
-                    if (text.Contains('#'))
+                    if (document.Words[i].Text.Contains('#'))
                     {
-                        document.Words[i].Text = text.Replace("#", String.Empty);
+                        document.Words[i].Text = document.Words[i].Text.Replace("#", String.Empty);
+                    }
+                    else
+                    {
+                        ++i;
                     }
                 }
 

@@ -46,27 +46,5 @@ namespace Cargo.Controller
                 ++num;
             }
         }
-
-        public static double CalculateSallary(DriverModel model, DateTime from, DateTime till)
-        {
-            using (var db = new CargoDbContext())
-            {
-                Driver driver = db.Drivers.Where(e => e.fDriverId == model.ID).First();
-                IEnumerable<RouteReport> reports = driver.RouteReports.Where(e => from <= e.StartDate && e.EndDate <= till);
-                double sum = 0.0;
-                double delta = 0.0;
-                foreach (var report in reports)
-                {
-                    Application apl = report.Applications.First();
-                    sum += apl.Compensation;
-                    delta += report.TotalSpendings - report.RoadCredit;
-                }
-
-                double sallary = sum * driver.InterestRate;
-                sallary += delta;
-
-                return sallary;
-            }
-        }
     }
 }

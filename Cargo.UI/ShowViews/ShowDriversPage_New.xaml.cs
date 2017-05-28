@@ -32,7 +32,7 @@ namespace Cargo.UI.ShowViews
             m_listView.ItemsSource = dController.GetDrivers();
 
             this.KeepAlive = true;
-            m_buttonSelect.Visibility = Visibility.Hidden;
+     //       m_buttonSelect.Visibility = Visibility.Hidden;
             m_buttonSelect.Click += SelectButton_Click;
         }
 
@@ -72,6 +72,7 @@ namespace Cargo.UI.ShowViews
                     var nextPage = new ShowApplicationsPage(reportModel);
                     nextPage.Return += ReturnHandle;
 
+                    m_buttonSelect.Click -= SelectButton_Click;
                     frame.Navigate(nextPage);
                 }
             }
@@ -85,6 +86,7 @@ namespace Cargo.UI.ShowViews
         {
             if (m_listView.SelectedIndex != -1)
             {
+                m_buttonSelect.Click -= GenerateSallaryButton_Click;
                 DriverModel model = m_listView.SelectedItem as DriverModel;
                 
                 var nextPage = new SelectDatesForQueryPage(model);

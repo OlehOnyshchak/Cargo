@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using Cargo.Controller;
 using Cargo.UI.AddViews;
 using Cargo.UI.ShowViews;
+using Cargo.Controller.DocumentGenerator;
 
 namespace Cargo.UI
 {
@@ -94,6 +95,12 @@ namespace Cargo.UI
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
             _mainFrame.Navigate(new ShowRouteReporsPage(ShowRouteReporsPage.OperationType.GenerateAcceptCert));
+        }
+
+        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
+        {
+            //DriverSallaryManager sm = new DriverSallaryManager();
+            //sm.generate();
         }
     }
 }

@@ -54,6 +54,7 @@
     <Compile Include="Controller.cs" />
     <Compile Include="DocumentGenerator\AcceptanceCertificateManager.cs" />
     <Compile Include="DocumentGenerator\DocumentManager.cs" />
+    <Compile Include="DocumentGenerator\DriverSallaryManaged.cs" />
     <Compile Include="DriverController.cs" />
     <Compile Include="Models\AddressModel.cs" />
     <Compile Include="Models\AddApplicationModel.cs" />

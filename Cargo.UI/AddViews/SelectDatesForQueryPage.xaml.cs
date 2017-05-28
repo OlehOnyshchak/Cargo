@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Cargo.Controller.Models;
 using Cargo.Controller;
+using Cargo.Controller.DocumentGenerator;
 
 namespace Cargo.UI.AddViews
 {
@@ -43,10 +44,14 @@ namespace Cargo.UI.AddViews
             if (DateTime.TryParse(m_upTextBox.Text, out from) &&
                 DateTime.TryParse(m_downTextBox.Text, out till))
             {
-                double sallary = GeneralController.CalculateSallary(driverModel, from, till);
-                MessageBox.Show(String.Format("{0}'s sallary from {1} to {2} equals = {3} UAH",
-                    driverModel.GivenName + ' ' + driverModel.FamilyName, from.ToShortDateString(), till.ToShortDateString(),
-                    sallary), "Notification", MessageBoxButton.OK, MessageBoxImage.Information);
+                DriverSallaryManager sm = new DriverSallaryManager();
+                if (!sm.generate(driverModel, from, till))
+                {
+                    MessageBox.Show(String.Format("{0}'s sallary from {1} to {2} equals = 0 UAH",
+                        driverModel.GivenName + ' ' + driverModel.FamilyName, from.ToShortDateString(), till.ToShortDateString()),
+                        "Notification", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+ 
                 this.OnReturn(null);
             }
             else
