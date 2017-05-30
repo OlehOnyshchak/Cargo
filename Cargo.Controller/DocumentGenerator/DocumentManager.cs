@@ -4,12 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Office.Interop.Word;
+using Microsoft.Office.Interop;
 using Cargo.Domain.Entities;
 
 namespace Cargo.Controller.DocumentGenerator
 {
     static public class DocumentManager
     {
+        //static public Microsoft.Office.Interop.Word.Application Application =
+        //    new Microsoft.Office.Interop.Word.Application();
+
         static internal string GetOfficialName(Person person)
         {
             string middle = person.MiddleName != null? person.MiddleName[0] + "." : String.Empty;
@@ -33,7 +37,7 @@ namespace Cargo.Controller.DocumentGenerator
 
         static public void Free()
         {
-  //          application.Quit();
+   //         Application.Quit();
         }
     }
 }

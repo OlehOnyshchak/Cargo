@@ -99,8 +99,8 @@ namespace Cargo.UI
 
         private void MenuItem_Click_1(object sender, RoutedEventArgs e)
         {
-            //DriverSallaryManager sm = new DriverSallaryManager();
-            //sm.generate();
+            bool val = false;
+            _mainFrame.Navigate(new ShowVehiclesPage(val));
         }
     }
 }

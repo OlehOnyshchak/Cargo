@@ -37,6 +37,7 @@ namespace Cargo.Controller.DocumentGenerator
                 Microsoft.Office.Interop.Word.Application application =
             new Microsoft.Office.Interop.Word.Application();
 
+                //         Document document = DocumentManager.Application.Documents.Open(templateFilePath);
                 Document document = application.Documents.Open(templateFilePath);
                 ++DocumentNumber;
 
@@ -143,6 +144,7 @@ namespace Cargo.Controller.DocumentGenerator
                 string filename = app.LoadingAddress.City + "_" + app.UnloadingAddress.City+ "_" + Guid.NewGuid().ToString() + ".doc";
                 string outFilePath = Path.Combine(outputDir, filename);
                 document.SaveAs(outFilePath);
+                document.Close();
                 application.Quit();
                 Process.Start("WINWORD.EXE", outFilePath);
             }

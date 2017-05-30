@@ -30,6 +30,7 @@ namespace Cargo.Controller.DocumentGenerator
                                 .Where(e => from <= e.StartDate && e.StartDate <= till)
                                 .ToList();
 
+               // Document document = DocumentManager.Application.Documents.Open(templateFilePath);
                 Document document = application.Documents.Open(templateFilePath);
                 var table = document.Tables[1];
                 Row templateRow = table.Rows[2];

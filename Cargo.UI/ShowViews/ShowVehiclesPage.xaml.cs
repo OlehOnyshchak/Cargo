@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Cargo.Controller;
 using Cargo.Controller.Models;
+using Cargo.Controller.DocumentGenerator;
 
 namespace Cargo.UI.ShowViews
 {
@@ -25,6 +26,7 @@ namespace Cargo.UI.ShowViews
         private VehicleController vehContr = new VehicleController();
         private AddApplicationModel appModel = null;
         private RouteReportModel reportModel = null;
+        private List<KeyValuePair<string, int>> values;
 
         public ShowVehiclesPage()
         {
@@ -54,11 +56,40 @@ namespace Cargo.UI.ShowViews
             this.Title = "Choose Vehicle - Step 2";
             m_buttonSelect.Click += repSelectButton_Click;
         }
+        
+        public ShowVehiclesPage(bool val)
+        {
+            InitializeComponent();
+            m_listView.ItemsSource = vehContr.GetVehicles();
+
+            m_buttonSelect.Visibility = Visibility.Visible;
+            this.Title = "Choose Vehicle - Step 2";
+            m_buttonSelect.Click += statSelectButton_Click;
+        }
+
+        private void statSelectButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (m_listView.SelectedIndex != -1)
+            {
+                m_buttonSelect.Click -= statSelectButton_Click;
+
+                VehicleModel vm = m_listView.SelectedItem as VehicleModel;
+                var frame = Application.Current.MainWindow.FindName("_mainFrame") as Frame;
+                var nextPage = new ShowVehicleStatistics(vm);
+                nextPage.Return += new ReturnEventHandler<String>(ReturnHandle);
+                frame.Navigate(nextPage);
+            }
+            else
+            {
+                MessageBox.Show("You must select the Vehicle", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
 
         private void appSelectButton_Click(object sender, RoutedEventArgs e)
         {
             if (m_listView.SelectedIndex != -1)
             {
+                m_buttonSelect.Click -= appSelectButton_Click;
                 appModel.Vehicle = m_listView.SelectedItem as VehicleModel;
                 this.OnReturn(null);
             }
